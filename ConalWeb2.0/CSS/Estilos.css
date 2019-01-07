@@ -1,0 +1,85 @@
+﻿/*
+    Barra menu: #2B456C
+    Fondo: #406295
+    FondoVentana: #C9D4E1
+    Barra menu: #2B456C
+*/
+
+/* navbar */
+.navbar {
+    background-color: #2B456C;
+    border-color: #2B456C;
+}
+/* Title */
+.navbar .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: #91a9ce;
+    }
+
+/* Link */
+.navbar .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+    color: #c7c7c7;
+}
+
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:hover,
+.navbar .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E7E7E7;
+}
+
+body {
+    background-color: #406295;
+}
+
+#divMain {
+    width: 800px;
+    margin: 0 auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 20px;
+    background-color: #2B456C;
+}
+
+#h2DivMain {
+    color: #ffffff;
+}
+
+#divSecond {
+    padding: 150px;
+    border-radius: 20px;
+    background-color: #C9D4E1;
+}
+
+#h4DivSecond {
+    color: #2B456C;
+}
+
+input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
