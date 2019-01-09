@@ -120,7 +120,12 @@
     <Content Include="CSS\CSS_PublicarReunion.css" />
     <Content Include="CSS\CSS_PublicarSuceso.css" />
     <Content Include="CSS\CSS_VerPerfil.css" />
+    <Content Include="CSS\CSS_EliminarMiembro.css" />
+    <Content Include="CSS\CSS_VerPublicacionesGrupo.css" />
+    <Content Include="CSS\CSS_VerReunion.css" />
+    <Content Include="CSS\CSS_VerSuceso.css" />
     <Content Include="CSS\Estilos.css" />
+    <Content Include="EliminarMiembros.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -163,12 +168,22 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="VerPublicacionesGrupo.aspx" />
+    <Content Include="VerReunion.aspx" />
+    <Content Include="VerSuceso.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="EliminarMiembros.aspx.cs">
+      <DependentUpon>EliminarMiembros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarMiembros.aspx.designer.cs">
+      <DependentUpon>EliminarMiembros.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,6 +201,26 @@
     </Compile>
     <Compile Include="PublicarReunion.aspx.designer.cs">
       <DependentUpon>PublicarReunion.aspx</DependentUpon>
+    <Compile Include="VerPublicacionesGrupo.aspx.cs">
+      <DependentUpon>VerPublicacionesGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerPublicacionesGrupo.aspx.designer.cs">
+      <DependentUpon>VerPublicacionesGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerReunion.aspx.cs">
+      <DependentUpon>VerReunion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerReunion.aspx.designer.cs">
+      <DependentUpon>VerReunion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerSuceso.aspx.cs">
+      <DependentUpon>VerSuceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerSuceso.aspx.designer.cs">
+      <DependentUpon>VerSuceso.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
