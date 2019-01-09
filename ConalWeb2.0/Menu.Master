@@ -13,7 +13,7 @@
         @import url('https://fonts.googleapis.com/css?family=Varela+Round');
         html, body {
             overflow-x: hidden;
-            height: 100%;
+            /*height: 100%;*/
         }
         /*body {
             background: #fff;
@@ -60,7 +60,7 @@
             margin-top: 60px;
             transform: translateX(-250px);
             transition: transform 250ms ease-in-out;
-            background-color: #3F5EFB;
+            background-color: #fff;
         }
         .sidebarMenuInner{
             margin:0;
