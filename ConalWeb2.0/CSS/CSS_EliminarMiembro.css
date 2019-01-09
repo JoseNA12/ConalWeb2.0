@@ -1,0 +1,66 @@
+﻿body {
+    background-color: #406295;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#tablaIntegrantes {
+    text-align: center;
+    border-collapse: collapse;
+    width: 90%;
+    font-size: 18px;
+}
+
+
+    #tablaIntegrantes th, #tablaIntegrantes td {
+        padding: 12px;
+    }
+
+    #tablaIntegrantes tr, #tablaIntegrantese tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+        #tablaIntegrantes tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        #tablaIntegrantes tr.header {
+            background-color: #EFF2F7;
+        }
+
+
+#container1 {
+    margin: auto;
+    border-radius: 10px;
+    background-color: #2B456C;
+    width: 1000px;
+    height: 860px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-top: 1px;
+    font-size: 15px;
+}
+
+#container2 {
+    color: black;
+    border-radius: 10px;
+    background-color: #C9D4E1;
+    width: 900px;
+    height: 770px;
+    padding-left: 100px;
+    padding-top: 20px;
+}
+
+.buttonGrupos {
+    background-color: #2B456C;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#divButton {
+    float: left;
+}
