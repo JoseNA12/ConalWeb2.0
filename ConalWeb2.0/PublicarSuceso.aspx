@@ -1,46 +1,53 @@
-﻿<%@ Page Language="C#" MasterPageFile="Menu.Master" AutoEventWireup="true" CodeBehind="PublicarReunion.aspx.cs" Inherits="ConalWeb2._0.PublicarReunion" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="Menu.Master" AutoEventWireup="true" CodeBehind="PublicarSuceso.aspx.cs" Inherits="ConalWeb2._0.PublicarSuceso" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-	<link rel="stylesheet" href="CSS/CSS_PublicarReunion.css">
+	<link rel="stylesheet" href="CSS/CSS_PublicarSuceso.css">
 
 </asp:Content>
-	
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
 	<div class="main">
 		<div class="container" id="container1">
 			<h1>
-				Publicar reunión
+				Publicar suceso
 			</h1>
-			<div class="container" id="container2">			
-				<form id="crearReunionForm" action="procesarCrearSuceso.php" method="post" enctype="multipart/form-data">
-					<div class="tab">
-					<label for="nombre">Titular</label>
-					<p><input placeholder="Titular" oninput="this.className = ''" name="titular"></p>
-					<label for="nombre">Motivo</label>
-					<p><textarea rows="4" cols="50" name="motivoReunion" form="crearReunionForm" placeholder="Motivo de la reunión"></textarea></p>
-					<label for="nombre">Fecha de la reunión</label>
-					<p><input id="date" type="date" name="fecha"></p>
-					<label for="nombre">Hora de la reunión</label>
-					<p><input type="time" name="hora"></p>
-					</div>
-					<div class="tab">
+			<div class="container" id="container2">
+				
+				<form id="crearSucesoForm" action="procesarCrearSuceso.php" method="post" enctype="multipart/form-data">
+				<!-- One "tab" for each step in the form: -->
+				<div class="tab">
+				
+				
+				
+				<label for="nombre">Titular</label>
+				<p><input placeholder="Titular" oninput="this.className = ''" name="titular"></p>
+				<label for="nombre">Decripción del suceso</label>
+				<p><textarea rows="4" cols="50" name="descripcionSuceso" form="crearSucesoForm" placeholder="Descripción del suceso"></textarea></p>
+				<label for="nombre">Descripción de los sospechosos</label>
+				<p><textarea rows="4" cols="50" name="descripcionSospechosos" form="crearSucesoForm" placeholder="Descripción de los sospechosos"></textarea></p>
+				<label for="nombre">Fecha del suceso</label>
+				<p><input id="date" type="date" name="fecha"></p>
+				<label for="nombre">Hora del suceso</label>
+				<p><input type="time" name="hora"></p>
+				</div>
+				<div class="tab">
 					<label for="nombre">Ubicación del suceso</label>
-					<p><textarea rows="4" cols="50" name="ubicacionTxt" form="crearReunionForm" placeholder='Ubicación del acontecimiento'></textarea></p>
-					<label for="nombre">Mapa de la ubicación</label>
-					<label for="nombre">ACA VA EL API DE GOOGLE MAPS</label>
-					</div>
-					<div style="overflow:auto;">
-					<div style="float:right;">
-					<button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-					<button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
-					</div>
-					</div>
-					<div style="text-align:center;margin-top:40px;">
-					<span class="step"></span>
-					<span class="step"></span>
-					</div>
+					<p><textarea rows="4" cols="50" name="ubicacionTxt" form="crearSucesoForm" placeholder='Ubicación del acontecimiento'></textarea></p>
+					<label for="nombre">aqui va el API de google maps</label>
+				</div>
+				<div style="overflow:auto;">
+				<div style="float:right;">
+				<button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+				<button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+				</div>
+				</div>
+				<!-- Circles which indicates the steps of the form: -->
+				<div style="text-align:center;margin-top:40px;">
+				<span class="step"></span>
+				<span class="step"></span>
+				</div>
 
 				</form>
 
@@ -48,8 +55,10 @@
 			</div>
 		</div>
 	</div>
-	
-	<script>
+
+
+
+    <script>
 	/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 	var dropdown = document.getElementsByClassName("dropdown-btn");
 	var i;
@@ -141,4 +150,5 @@
 		x[n].className += " active";
 	}
 	</script>
+
 </asp:Content>

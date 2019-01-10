@@ -4,178 +4,142 @@
 
 <html>
 <head runat="server">
+    <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-        html, body {
-            overflow-x: hidden;
-            /*height: 100%;*/
-        }
-        /*body {
-            background: #fff;
-            padding: 0;
-            margin: 0;
-            font-family: 'Varela Round', sans-serif;
-        }*/
-        .header {
-            display: block;
-            margin: 0 auto;
-            width: 100%;
-            max-width: 100%;
-            box-shadow: none;
-    
-            position: fixed;
-            height: 60px!important;
-            overflow: hidden;
-            z-index: 10;
-        }
-        .main {
-            margin: 0 auto;
-            display: block;
-            height: 100%;
-            margin-top: 60px;
-        }
-        .mainInner{
-            display: table;
-            height: 100%;
-            width: 100%;
-            text-align: center;
-        }
-        .mainInner div{
-            display:table-cell;
-            vertical-align: middle;
-            font-size: 3em;
-            font-weight: bold;
-            letter-spacing: 1.25px;
-        }
-        #sidebarMenu {
-            height: 100%;
-            position: fixed;
-            left: 0;
-            width: 250px;
-            margin-top: 60px;
-            transform: translateX(-250px);
-            transition: transform 250ms ease-in-out;
-            background-color: #fff;
-        }
-        .sidebarMenuInner{
-            margin:0;
-            padding:0;
-            border-top: 1px solid rgba(255, 255, 255, 0.10);
-        }
-        .sidebarMenuInner li{
-            list-style: none;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: bold;
-            padding: 20px;
-            cursor: pointer;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-        }
-        .sidebarMenuInner li span{
-            display: block;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.50);
-        }
-        .sidebarMenuInner li a{
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        input[type="checkbox"]:checked ~ #sidebarMenu {
-            transform: translateX(0);
+        #checkbox-container {
+          display: block;
+          float: left;
+          width: 50px;
+          height: 50px;
+          position: relative;
+          background: black;
+          left:30px;
         }
 
-        input[type=checkbox] {
-            transition: all 0.3s;
-            box-sizing: border-box;
-            display: none;
+        #menu-content {
+          display: flex;
+          background: white;
+          color: #406295;
+          float: left;
         }
-        .sidebarIconToggle {
-            transition: all 0.3s;
-            box-sizing: border-box;
-            cursor: pointer;
-            position: absolute;
-            z-index: 99;
-            height: 100%;
-            width: 100%;
-            top: 22px;
-            left: 15px;
-            height: 22px;
-            width: 22px;
+
+        #menu-content ul {
+          max-height:650px;
+          display: block;
+          padding-left: 0;
+          padding-top: 1em;
+          padding-bottom: 1em;
+          margin: 0;
+          width: 0px;
+          height: 0px;
+          overflow: hidden;
+          transition: height 0.3s ease 0.7s, width 0.7s ease;
         }
-        .spinner {
-            transition: all 0.3s;
-            box-sizing: border-box;
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            background-color: #000000;
+
+        #menu-content ul li {
+          padding-left: 15px;
+          list-style: none;
+          padding-top: 1em;
+          padding-bottom: 1em;
+          cursor: pointer;
+          transition: color 0.5s, background 0.5s;
         }
-        .horizontal {
-            transition: all 0.3s;
-            box-sizing: border-box;
-            position: relative;
-            float: left;
-            margin-top: 3px;
+
+        #menu-content ul li:hover {
+          color: #406295;
+          background: #C9D4E1;
         }
-        .diagonal.part-1 {
-            position: relative;
-            transition: all 0.3s;
-            box-sizing: border-box;
-            float: left;
+
+        .checkbox-trigger {
+          opacity: 0;
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          left: 0px;
+          cursor: pointer;
+          z-index: 5;
         }
-        .diagonal.part-2 {
-            transition: all 0.3s;
-            box-sizing: border-box;
-            position: relative;
-            float: left;
-            margin-top: 3px;
+
+        .hamburger-menu, .hamburger-menu::before, .hamburger-menu::after {
+          display: block;
+          position: absolute;
+          background: #406295;
+          width: 40px;
+          height: 4px;
+          margin: 1.3em 3em;
+          transition: background 0.3s;
         }
-        input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
-            transition: all 0.3s;
-            box-sizing: border-box;
-            opacity: 0;
+
+        .hamburger-menu::before, .hamburger-menu::after {
+          content: '';
+          position: absolute;
+          margin: -0.7em 0 0;
+          transition: width 0.7s ease 0.3s, transform 0.7s ease 0.3s;
         }
-        input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
-            transition: all 0.3s;
-            box-sizing: border-box;
-            transform: rotate(135deg);
-            margin-top: 8px;
+
+        .hamburger-menu::after { margin-top: 0.7em; }
+
+        .hamburger-menu {
+          position: relative;
+          display: block;
+          margin: 0;
+          margin-top: 1.45em;
+          margin-right: 0.35em;
+          margin-left: 0.35em;
+          margin-bottom: 1.45em;
+          transition: width 0.3s ease;
         }
-        input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
-            transition: all 0.3s;
-            box-sizing: border-box;
-            transform: rotate(-135deg);
-            margin-top: -9px;
+
+        .checkbox-trigger:checked { left: 202px; }
+
+        .checkbox-trigger:checked + #menu-content .hamburger-menu {
+          width: 2em;
+          transition: width 2s ease 2s;
         }
+
+        .checkbox-trigger:checked + #menu-content .hamburger-menu::before {
+          width: 1.2em;
+          transform: rotate(-35deg);
+          margin-top: -0.4em;
+        }
+
+        .checkbox-trigger:checked + #menu-content .hamburger-menu::after {
+          width: 1.2em;
+          transform: rotate(35deg);
+          margin-top: 0.4em;
+        }
+
+        .checkbox-trigger:checked + #menu-content ul {
+            overflow: auto;
+            width: 200px;
+            height: auto;
+            transition: width 2s ease 0.3s, height 2s ease;
+        }
+
     </style>
 
 </head>
 <body>
-    <div class="header"></div>
-    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-    <label for="openSidebarMenu" class="sidebarIconToggle">
-        <div class="spinner diagonal part-1"></div>
-        <div class="spinner horizontal"></div>
-        <div class="spinner diagonal part-2"></div>
-    </label>
-    <div id="sidebarMenu">
-    <ul class="sidebarMenuInner">
-        <li>Jelena Jovanovic <span>Web Developer</span></li>
-        <li><a href="https://vanila.io" target="_blank">Company</a></li>
-        <li><a href="https://instagram.com/plavookac" target="_blank">Instagram</a></li>
-        <li><a href="https://twitter.com/plavookac" target="_blank">Twitter</a></li>
-        <li><a href="https://www.youtube.com/channel/UCDfZM0IK6RBgud8HYGFXAJg" target="_blank">YouTube</a></li>
-        <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">Linkedin</a></li>
-    </ul>
-    </div>
+    
+    <span class="checkbox-container" id="checkbox-container">
+      <input class="checkbox-trigger" type="checkbox"  />
+      <span class="menu-content" id="menu-content">
+          <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Blog</li>
+            <li>Social</li>
+             
+          </ul>
+        <span class="hamburger-menu"></span>
+      </span>
+    </span>
 
     <section class="content" style="margin-left:5%; margin-right:5%;">
         <form id="form1" runat="server">
@@ -186,5 +150,15 @@
             </div>
         </form>
     </section>
+
+    <script>
+        function w3_open() {
+          document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+          document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
 </body>
 </html>
