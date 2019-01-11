@@ -13,23 +13,23 @@
                 Crear Grupo
             </h1>
             <div class="container" id="container2">
-                <form id="crearGrupoForm"  method="post" enctype="multipart/form-data">
-                    <div class="tab">
-                        <label for="nombre">Nombre</label>
-                        <p><input placeholder="Nombre del grupo" oninput="this.className = ''" name="titular"></p>
-                        <label for="subject">Descripción</label>
-                        <p><textarea rows="4" cols="50" name="descripcionGrupo" form="crearGrupoForm" placeholder="Descripción del grupo.."></textarea></p>
-                        <br>
-                        <label for="subject">Imagen</label>
-                        <input type="file" name="image" id="inputImg" />
-                        <br>
-                        <br>                    
-                    </div><br><br>
-                    <div class="tab" id="idButtonCrearGp">
-                        <button id="btnCrearGp" style="display:block;width:120px; height:30px;" onclick="validateForm()" >Crear grupo</button>
-                        <input type="submit" value="Submit" name="sumit" id="btnCrearGrupo" style="display:none" />
-                    </div>               
-                </form>
+                <div class="tab">
+                    <label id="idPrueba" for="nombre">Nombre</label>
+                    <p><asp:TextBox runat="server" id="inputTitular" placeholder="Nombre del grupo" oninput="this.className = ''" name="titular"/></p>
+                    <label for="subject">Descripción</label>
+                    <p><Textarea id="inputDescripcion" rows="4" cols="50" name="inputDescripcion" placeholder="Descripción del grupo.."></Textarea></p>
+
+                    <label for="subject">Imagen</label>
+                    <asp:FileUpload ID="FileUpload1" runat="server" /><br>
+                    <asp:Button type="file" name="image" runat="server" id="btnUpload" OnClick="UploadFile" Text="Mostrar imagen" CssClass="btnMostrarImg" />
+
+                    <asp:Image ID="Image1" runat="server" Height = "100" Width = "100" CssClass="imagen"/>
+                    <br>
+                    <br>                    
+                </div><br><br>
+                <div class="tab" id="idButtonCrearGp">
+                    <asp:Button class="btnCrearGrupo" name="btnCrearGp" runat="server" Text="Crear Grupo"  OnClick="pruebajeje" />
+                </div>                               
             </div>
         </div>
     </div>

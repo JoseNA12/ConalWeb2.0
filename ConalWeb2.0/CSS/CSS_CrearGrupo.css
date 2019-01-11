@@ -72,7 +72,10 @@ input[type=submit]:hover {
     color:#47525E;
 }
 
-#btnCrearGp {
+.btnCrearGrupo {
+    margin: 0 auto;
+    width: 120px;
+    height: 40px;
     background-color: #2B456C;
     font-size: 15px;
     color: white;
@@ -80,8 +83,25 @@ input[type=submit]:hover {
     border-radius: 4px;
     cursor: pointer;
     display: flex;
-    justify-content: center;
+}
+
+.btnMostrarImg {
+    left:50px;
+    width: 150px;
+    height: 40px;
+    background-color: #2B456C;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+}
+
+.imagen {
     margin: 0 auto;
+    border-radius: 40%;
+    display: flex;
 }
 
 #container1 {
@@ -89,7 +109,7 @@ input[type=submit]:hover {
     border-radius: 10px;
     background-color: #2B456C;
     width: 940px;
-    height: 710px;
+    height: 810px;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
@@ -97,12 +117,13 @@ input[type=submit]:hover {
     color: #ffffff;
     font-size: 15px;
 }
-  
+
   #container2 {
+
     border-radius: 10px;
     background-color: #C9D4E1;
     width:910px;
-    height:620px;
+    height:730px;
     padding-left:100px;
     padding-top:20px;
   }
