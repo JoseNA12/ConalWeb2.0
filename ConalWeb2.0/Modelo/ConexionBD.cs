@@ -194,7 +194,7 @@ namespace ConalWeb2._0.Modelo
 
         public Boolean publicarReunion(String titular, String descripcion, String fecha, String hora, String ubicacion, String idUsuario, String idGrupo)
         {
-            String respuesta = executeQueryPOST(URL_PublicarReunion, "Titular=" + titular + "&Descripcion=" + descripcion + "&fecha=" + fecha + "&hora=" + hora + "&Ubicacion=" + ubicacion + "&idUsuario=" + idUsuario + "&idGrupo=" + idGrupo);
+            String respuesta = executeQueryPOST(URL_PublicarReunion, "Titular=" + titular + "&Descripcion=" + descripcion + "&fecha=" + fecha + "&hora=" + hora + "&Ubicacion=" + ubicacion + "&IdUsuario=" + idUsuario + "&IdGrupo=" + idGrupo);
 
             try
             {

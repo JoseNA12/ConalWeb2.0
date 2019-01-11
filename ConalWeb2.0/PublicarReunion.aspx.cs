@@ -6,7 +6,7 @@ using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using ConalWeb2._0.Modelo;
 namespace ConalWeb2._0
 {
     public partial class PublicarReunion : System.Web.UI.Page
@@ -17,9 +17,14 @@ namespace ConalWeb2._0
         }
         public void btnPublicarReunion(object sender, EventArgs e)
         {
-            string fuck = inputTitular.Text + Request.Form["inputMotivo"] + inputFecha.Text + inputHora.Text + Request.Form["inputUbicacion"];
-
-            Response.Write("<script>alert('" + fuck + "')</script>");
+            if(ConexionBD.getInstance().publicarReunion(inputTitular.Text, Request.Form["inputMotivo"], inputFecha.Text, inputHora.Text, Request.Form["inputUbicacion"], "josuarez", "1"))
+            {
+                Response.Write("<script>alert(' Reunión publicada con éxito ')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert(' Ha sucedido un error ')</script>");
+            }
         }
     }
 }
