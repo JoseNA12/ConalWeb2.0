@@ -118,9 +118,11 @@ namespace ConalWeb2._0.Modelo
                 JObject jsonObject = JObject.Parse(respuesta);
                 if (!jsonObject.Value<string>("status").Equals("false"))
                 {
+                    System.Diagnostics.Debug.WriteLine("parada 1");
                     JToken valores = jsonObject.GetValue("value");
                     foreach (JObject json in valores)
                     {
+                        System.Diagnostics.Debug.WriteLine("parada 2");
                         String idGrupo = json.Value<string>("IdGrupo");
                         String idAdm = json.Value<string>("IdAdministrador");
                         String nombre = json.Value<string>("Nombre");

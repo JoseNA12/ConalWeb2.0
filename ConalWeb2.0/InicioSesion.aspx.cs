@@ -32,6 +32,8 @@ namespace ConalWeb2._0
                 HttpContext.Current.Session.Add(ClaseGlobal.sessionKey_usuarioCorreo, u.getCorreo());
                 Response.Redirect("PaginaPrincipal.aspx", false);
                 //Response.Write("<script>alert('" + u.getNombre() + "')</script>");
+
+          
             }
             
         }

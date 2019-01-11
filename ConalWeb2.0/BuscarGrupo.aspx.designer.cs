@@ -13,6 +13,15 @@ namespace ConalWeb2._0 {
     public partial class BuscarGrupo {
         
         /// <summary>
+        /// Control tblGruposNoPertenece.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tblGruposNoPertenece;
+        
+        /// <summary>
         /// Propiedad PreviousPage.
         /// </summary>
         /// <remarks>
