@@ -13,5 +13,11 @@ namespace ConalWeb2._0
         {
 
         }
+
+        public void btnCrearCuenta(object sender, EventArgs e)
+        {
+            string fuck = inputNombre.Text + inputApellidos.Text + inputCorreo.Text + inputContrasenia.Text;
+            Response.Write("<script>alert('este es mi string" + fuck + "')</script>");
+        }
     }
 }

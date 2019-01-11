@@ -31,16 +31,18 @@
         <br/>
         <h2 id="h2DivMain">Iniciar sesión</h2>
         <div id="divSecond">
-            <br/>
-            <h4 id="h4DivSecond">Correo</h4>
-            <input type="email" name="correo" placeholder="ejemplo@correo.com" />
-            <br/><br/>
-            <h4 id="h4DivSecond">Contraseña</h4>
-            <input type="password" name="contrasenia" placeholder="pepito123" />
-            <br/><br/>
-            <div align="center">
-                <button class="button button2">Iniciar sesión</button>
-            </div>
+            <form id="form1" runat="server">
+                <br/>
+                <h4 id="h4DivSecond">Correo</h4>
+                <asp:TextBox ID="inputCorreo" runat="server" type="email" name="correo" placeholder="ejemplo@correo.com"></asp:TextBox>
+                <br/><br/>
+                <h4 id="h4DivSecond">Contraseña</h4>
+                <asp:TextBox ID="inputContrasenia" runat="server" type="password" name="contrasenia" placeholder="pepito123"></asp:TextBox>
+                <br/><br/>
+                <div align="center">
+                    <asp:Button ID="Button1" runat="server" class="button button2" Text="Iniciar sesión" onClick="btnIniciarSesion" />
+                </div>
+            </form>
             
             <br/><br/>
         </div>

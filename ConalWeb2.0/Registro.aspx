@@ -32,22 +32,27 @@
         <h2 id="h2DivMain">Registro</h2>
         <div id="divSecond">
             <br/>
-            <h4 id="h4DivSecond">Nombre</h4>
-            <input type="text" name="nombre" />
-            <br/>
-            <h4 id="h4DivSecond">Apellidos</h4>
-            <input type="text" name="apellidos" />
-            <br/>
-            <h4 id="h4DivSecond">Correo</h4>
-            <input type="email" name="correo" placeholder="ejemplo@correo.com" />
-            <br/>
-            <h4 id="h4DivSecond">Contraseña</h4>
-            <input type="password" name="contrasenia" placeholder="pepito123" />
-            <br/><br/>
-            <div align="center">
-                <button class="button button2">Registrase</button>
-            </div>
-            
+            <form id="form2" runat="server">
+                <h4 id="h4DivSecond">Nombre</h4>
+                <asp:TextBox runat="server" id="inputNombre" type="text" name="nombre" />
+                <br/>
+                <h4 id="h4DivSecond">Apellidos</h4>
+                <asp:TextBox runat="server" type="text" id="inputApellidos" name="apellidos" />
+                <br/>
+                <h4 id="h4DivSecond">Usuario</h4>
+                <asp:TextBox runat="server" type="text" id="inputUsuario" name="usuario" />
+                <br/>
+                <h4 id="h4DivSecond">Correo</h4>
+                <asp:TextBox runat="server" type="email" id="inputCorreo" name="correo" placeholder="ejemplo@correo.com" />
+                <br/>
+                <h4 id="h4DivSecond">Contraseña</h4>
+                <asp:TextBox runat="server" type="password" id="inputContrasenia" name="contrasenia" placeholder="pepito123" />
+
+                <br/><br/>
+                <div align="center">
+                    <asp:Button runat="server" class="button button2" Text="Registrase" onClick="btnCrearCuenta" />
+                </div>
+            </form>
             <br/><br/>
         </div>
         <br/>

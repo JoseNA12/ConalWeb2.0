@@ -13,5 +13,11 @@ namespace ConalWeb2._0
         {
 
         }
+
+        public void btnIniciarSesion(object sender, EventArgs e)
+        {
+            string fuck = inputCorreo.Text + inputContrasenia.Text;
+            Response.Write("<script>alert('" + fuck + "')</script>");
+        }
     }
 }
