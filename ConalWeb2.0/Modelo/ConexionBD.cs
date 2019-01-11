@@ -336,19 +336,17 @@ namespace ConalWeb2._0.Modelo
                 if (!jsonObject.Value<string>("status").Equals("false"))
                 {
                     JToken valores = jsonObject.GetValue("value");
-                    foreach (JObject json in valores)
-                    {
-                        String idUsuario = json.Value<string>("IDUsuario");
-                        String nombre = json.Value<string>("Nombre");
-                        String apellido = json.Value<string>("Apellido");
-                        String correo = json.Value<string>("Correo");
-                        u = new Usuario(idUsuario, nombre, apellido, correo);
-                        return u;
-                    }
+                    System.Diagnostics.Debug.WriteLine("valores " + valores.ToString());
+                    String idUsuario = valores.Value<string>("IDUsuario");
+                    String nombre = valores.Value<string>("Nombre");
+                    String apellido = valores.Value<string>("Apellido");
+                    String correo = valores.Value<string>("Correo");
+                    u = new Usuario(idUsuario, nombre, apellido, correo);
+                    return u;   
                 }
 
             }
-            catch (Exception e) { }
+            catch (Exception e) { Console.WriteLine("mierda " + e); }
             return u;
         }
     }

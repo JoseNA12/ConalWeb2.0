@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ConalWeb2._0.Modelo;
+
+
 
 namespace ConalWeb2._0
 {
@@ -16,8 +19,18 @@ namespace ConalWeb2._0
 
         public void btnIniciarSesion(object sender, EventArgs e)
         {
-            string fuck = inputCorreo.Text + inputContrasenia.Text;
-            Response.Write("<script>alert('" + fuck + "')</script>");
+            Usuario u = null;
+            u = ConexionBD.getInstance().iniciarSesion(inputCorreo.Text, inputContrasenia.Text);
+
+            if (u == null)
+            {
+                Response.Write("<script>alert(' error ')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('" + u.getNombre() + "')</script>");
+            }
+            
         }
     }
 }

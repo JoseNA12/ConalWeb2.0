@@ -19,5 +19,12 @@ namespace ConalWeb2._0.Modelo
             this.apellido = apellido;
             this.correo = correo;
         }
+
+        public String getNombre()
+        {
+            return this.nombre;
+        }
+
+
     }
 }
