@@ -13,5 +13,10 @@ namespace ConalWeb2._0
         {
 
         }
+
+        protected void btnPublicarSuceso(object sender, EventArgs e)
+        {
+            Console.Write("hola");
+        }
     }
 }
