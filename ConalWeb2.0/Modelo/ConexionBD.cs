@@ -16,11 +16,14 @@ namespace ConalWeb2._0.Modelo
 
         
         private static String host = "http://conalweb.esy.es/ConalWeb_PHP/";
+
         private static String URL_GruposPertenece = host + "Grupo/Select_Grupos_Usuario_Pertenece.php";
         private static String URL_GruposNoPertenece = host + "Grupo/Select_Grupos_Usuario_NoPertenece.php";
         private static String URL_AgregarMiembroGrupo = host + "Grupo/AgregarUsuario.php";
         private static String URL_EliminarMiembroGrupo = host + "Grupo/Delete_Miembro_Grupo.php";
         private static String URL_Select_Miembros_Grupo = host + "Grupo/Select_Miembros_Grupo.php";
+        private static String URL_CrearGrupo = host + "Grupo/CrearGrupo.php";
+        private static String URL_SelectGrupos = host + "Grupo/Select_Grupos.php";
 
 
         private static String URL_PublicarSuceso = host + "Suceso/CrearSuceso.php";
@@ -139,24 +142,6 @@ namespace ConalWeb2._0.Modelo
             catch (Exception e) { }
 
             return result;
-        }
-
-        public Boolean crearGrupo(String idAdm, String nombre, String descripcion, String nombreIMG)
-        {
-            String respuesta = executeQueryPOST(URL_GruposNoPertenece, "nombre=" + nombre + "&descripcion=" + descripcion + "&adm=" + idAdm + "&name=" + nombreIMG);
-            
-
-            try
-            {
-                JObject jsonObject = JObject.Parse(respuesta);
-                if (!jsonObject.Value<string>("status").Equals("false"))
-                {
-                    return true;
-                }
-
-            }
-            catch (Exception e) { }
-            return false;
         }
 
         public Boolean actualizarGrupo(String idGrupo, String nombre, String descripcion, String nombreIMG)
@@ -346,10 +331,49 @@ namespace ConalWeb2._0.Modelo
                     u = new Usuario(idUsuario, nombre, apellido, correo);
                     return u;   
                 }
-
             }
             catch (Exception e) { Console.WriteLine("mierda " + e); }
             return u;
         }
+
+        public Boolean crearGrupo(String idAdm, String nombre, String descripcion)
+        {
+            String respuesta = executeQueryPOST(URL_CrearGrupo, "nombre=" + nombre + "&descripcion=" + descripcion + "&adm=" + idAdm);
+            try
+            {
+                JObject jsonObject = JObject.Parse(respuesta);
+                if (!jsonObject.Value<string>("status").Equals("false"))
+                {
+                    return true;
+                }
+            }
+            catch (Exception e) { }
+            return false;
+        }
+
+        public Boolean validarGrupo(string pNombreGrupo)
+        {
+            String respuesta = executeQueryPOST(URL_SelectGrupos, "");
+            ArrayList result = new ArrayList();
+            try
+            {
+                JObject jsonObject = JObject.Parse(respuesta);
+                if (!jsonObject.Value<string>("status").Equals("false"))
+                {
+                    // IdReunion	IdGrupo	IdUsuario	Ubicacion	Descripcion	Titular	Fecha	Hora
+                    JToken valores = jsonObject.GetValue("value");
+                    foreach (JObject json in valores)
+                    {
+                        if (pNombreGrupo.Equals(json.Value<string>("Nombre")))
+                        {
+                            return false;
+                        }                        
+                    }
+                }
+            }
+            catch (Exception e) { }
+            return true;
+        }
+
     }
 }

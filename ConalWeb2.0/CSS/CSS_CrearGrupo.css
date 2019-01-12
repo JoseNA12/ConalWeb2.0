@@ -109,7 +109,7 @@ input[type=submit]:hover {
     border-radius: 10px;
     background-color: #2B456C;
     width: 940px;
-    height: 810px;
+    height: 610px;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
@@ -123,7 +123,7 @@ input[type=submit]:hover {
     border-radius: 10px;
     background-color: #C9D4E1;
     width:910px;
-    height:730px;
+    height:530px;
     padding-left:100px;
     padding-top:20px;
   }
