@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConalWeb2._0.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,18 @@ namespace ConalWeb2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString();
+            if (HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioCorreo] != null) // evitar saltarse el inicio de sesion
+            {
+                divNombre.Controls.Add(new LiteralControl("<center>" + HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombre] + " " +
+                    HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioApellidos] + "</center>"));
+                divUsuario.Controls.Add(new LiteralControl("<p>" + HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario] + "</p>"));
+                divEmail.Controls.Add(new LiteralControl("<p>" + HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioCorreo] + "</p>"));
+                // si esta logeado
+            }
+            else
+            {
+                Response.Redirect("InicioSesion.aspx", false); // pa tras niño
+            }
         }
     }
 }

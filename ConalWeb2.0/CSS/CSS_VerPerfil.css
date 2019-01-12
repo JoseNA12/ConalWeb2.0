@@ -47,12 +47,15 @@ center {
     font-weight: bold;
 }
 
-h3 {
-    font-size: 25px;
+h4 {
     color: #47525E;
 }
 
 p {
     font-size: 16px;
     color: #47525E;
+}
+
+#divNombre {
+    margin: 0 auto;
 }

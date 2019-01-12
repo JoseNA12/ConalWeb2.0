@@ -18,7 +18,7 @@ namespace ConalWeb2._0
             }
             else
             {
-                //Response.Redirect("InicioSesion.aspx", false); // pa tras niño
+                Response.Redirect("InicioSesion.aspx", false); // pa tras niño
             }
         }
     }

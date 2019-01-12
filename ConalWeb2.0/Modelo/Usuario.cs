@@ -34,5 +34,10 @@ namespace ConalWeb2._0.Modelo
         {
             return this.correo;
         }
+
+        public string getApellidos()
+        {
+            return this.apellido;
+        }
     }
 }
