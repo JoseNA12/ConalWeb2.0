@@ -15,24 +15,24 @@ namespace ConalWeb2._0.Modelo
     {
 
         
-        private static String host = "http://conalweb.esy.es/ConalWeb_PHP/";
+        private static string host = "http://conalweb.esy.es/ConalWeb_PHP/";
 
-        private static String URL_GruposPertenece = host + "Grupo/Select_Grupos_Usuario_Pertenece.php";
-        private static String URL_GruposNoPertenece = host + "Grupo/Select_Grupos_Usuario_NoPertenece.php";
-        private static String URL_AgregarMiembroGrupo = host + "Grupo/AgregarUsuario.php";
-        private static String URL_EliminarMiembroGrupo = host + "Grupo/Delete_Miembro_Grupo.php";
-        private static String URL_Select_Miembros_Grupo = host + "Grupo/Select_Miembros_Grupo.php";
-        private static String URL_CrearGrupo = host + "Grupo/CrearGrupo.php";
-        private static String URL_SelectGrupos = host + "Grupo/Select_Grupos.php";
+        private static string URL_GruposPertenece = host + "Grupo/Select_Grupos_Usuario_Pertenece.php";
+        private static string URL_GruposNoPertenece = host + "Grupo/Select_Grupos_Usuario_NoPertenece.php";
+        private static string URL_AgregarMiembroGrupo = host + "Grupo/AgregarUsuario.php";
+        private static string URL_EliminarMiembroGrupo = host + "Grupo/Delete_Miembro_Grupo.php";
+        private static string URL_Select_Miembros_Grupo = host + "Grupo/Select_Miembros_Grupo.php";
+        private static string URL_CrearGrupo = host + "Grupo/CrearGrupo.php";
+        private static string URL_SelectGrupos = host + "Grupo/Select_Grupos.php";
 
 
-        private static String URL_PublicarSuceso = host + "Suceso/CrearSuceso.php";
+        private static string URL_PublicarSuceso = host + "Suceso/CrearSuceso.php";
 
-        private static String URL_PublicarReunion = host + "Reunion/Insert_Reunion.php";
-        private static String URL_SelectReuniones = host + "Reunion/Select_Reuniones_De_Grupo.php";
+        private static string URL_PublicarReunion = host + "Reunion/Insert_Reunion.php";
+        private static string URL_SelectReuniones = host + "Reunion/Select_Reuniones_De_Grupo.php";
 
-        private static String URL_RegistrarUsuario = host + "Usuario/RegistrarUsuario.php";
-        private static String URL_IniciarSesion = host + "Usuario/Login.php";
+        private static string URL_RegistrarUsuario = host + "Usuario/RegistrarUsuario.php";
+        private static string URL_IniciarSesion = host + "Usuario/Login.php";
 
 
 
@@ -53,7 +53,7 @@ namespace ConalWeb2._0.Modelo
         }
 
 
-        public String executeQueryPOST(String URL, String parametros)
+        public string executeQueryPOST(string URL, string parametros)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
             request.Method = "POST";
@@ -79,9 +79,9 @@ namespace ConalWeb2._0.Modelo
             return respuesta;
         }
 
-        public ArrayList cargarGruposPertenece(String IdUsuario)
+        public ArrayList cargarGruposPertenece(string IdUsuario)
         {
-            String respuesta = executeQueryPOST(URL_GruposPertenece, "IdUsuario=" + IdUsuario);
+            string respuesta = executeQueryPOST(URL_GruposPertenece, "IdUsuario=" + IdUsuario);
             ArrayList result = new ArrayList();
 
             try
@@ -92,12 +92,12 @@ namespace ConalWeb2._0.Modelo
                     JToken valores = jsonObject.GetValue("value");
                     foreach (JObject json in valores)
                     {
-                        String idGrupo = json.Value<string>("IdGrupo");
-                        String idAdm = json.Value<string>("IdAdministrador");
-                        String nombre = json.Value<string>("Nombre");
-                        String descripcion = json.Value<string>("Descripcion");
-                        String img = json.Value<string>("Imagen");
-                        String name_img = json.Value<string>("NombreImg");
+                        string idGrupo = json.Value<string>("IdGrupo");
+                        string idAdm = json.Value<string>("IdAdministrador");
+                        string nombre = json.Value<string>("Nombre");
+                        string descripcion = json.Value<string>("Descripcion");
+                        string img = json.Value<string>("Imagen");
+                        string name_img = json.Value<string>("NombreImg");
                         Grupo g = new Grupo(idGrupo, idAdm, nombre, descripcion, img, name_img);
                         result.Add(g);
                     }
@@ -111,9 +111,9 @@ namespace ConalWeb2._0.Modelo
         }
 
 
-        public ArrayList cargarGruposNoPertenece(String IdUsuario)
+        public ArrayList cargarGruposNoPertenece(string IdUsuario)
         {
-            String respuesta = executeQueryPOST(URL_GruposNoPertenece, "IdUsuario=" + IdUsuario);
+            string respuesta = executeQueryPOST(URL_GruposNoPertenece, "IdUsuario=" + IdUsuario);
             ArrayList result = new ArrayList();
 
             try
@@ -126,12 +126,12 @@ namespace ConalWeb2._0.Modelo
                     foreach (JObject json in valores)
                     {
                         System.Diagnostics.Debug.WriteLine("parada 2");
-                        String idGrupo = json.Value<string>("IdGrupo");
-                        String idAdm = json.Value<string>("IdAdministrador");
-                        String nombre = json.Value<string>("Nombre");
-                        String descripcion = json.Value<string>("Descripcion");
-                        String img = json.Value<string>("Imagen");
-                        String name_img = json.Value<string>("NombreImg");
+                        string idGrupo = json.Value<string>("IdGrupo");
+                        string idAdm = json.Value<string>("IdAdministrador");
+                        string nombre = json.Value<string>("Nombre");
+                        string descripcion = json.Value<string>("Descripcion");
+                        string img = json.Value<string>("Imagen");
+                        string name_img = json.Value<string>("NombreImg");
                         Grupo g = new Grupo(idGrupo, idAdm, nombre, descripcion, img, name_img);
                         result.Add(g);
                     }
@@ -144,9 +144,9 @@ namespace ConalWeb2._0.Modelo
             return result;
         }
 
-        public Boolean actualizarGrupo(String idGrupo, String nombre, String descripcion, String nombreIMG)
+        public Boolean actualizarGrupo(string idGrupo, string nombre, string descripcion, string nombreIMG)
         {
-            String respuesta = executeQueryPOST(URL_GruposNoPertenece, "Nombre=" + nombre + "&Descripcion=" + descripcion + "&IdGrupo=" + idGrupo + "&NombreImg=" + nombreIMG);
+            string respuesta = executeQueryPOST(URL_GruposNoPertenece, "Nombre=" + nombre + "&Descripcion=" + descripcion + "&IdGrupo=" + idGrupo + "&NombreImg=" + nombreIMG);
 
 
             try
@@ -162,9 +162,9 @@ namespace ConalWeb2._0.Modelo
             return false;
         }
 
-        public Boolean publicarSuceso(String titular, String descripcion, String sospechosos, String fecha, String hora, String ubicacion, String imgGPS, String idUsuario, String idGrupo)
+        public Boolean publicarSuceso(string titular, string descripcion, string sospechosos, string fecha, string hora, string ubicacion, string imgGPS, string idUsuario, string idGrupo)
         {
-            String respuesta = executeQueryPOST(URL_PublicarSuceso, "titular=" + titular + "&descripcion=" + descripcion + "&sospechosos=" + sospechosos + "&fecha=" + fecha + "&hora=" + hora + "&ubicacion="+ubicacion + "&imgGPS="+imgGPS + "&idUsuario="+idUsuario + "&idGrupo=" + idGrupo);
+            string respuesta = executeQueryPOST(URL_PublicarSuceso, "titular=" + titular + "&descripcion=" + descripcion + "&sospechosos=" + sospechosos + "&fecha=" + fecha + "&hora=" + hora + "&ubicacion="+ubicacion + "&imgGPS="+imgGPS + "&idUsuario="+idUsuario + "&idGrupo=" + idGrupo);
 
             try
             {
@@ -179,9 +179,9 @@ namespace ConalWeb2._0.Modelo
             return false;
         }
 
-        public Boolean publicarReunion(String titular, String descripcion, String fecha, String hora, String ubicacion, String idUsuario, String idGrupo)
+        public Boolean publicarReunion(string titular, string descripcion, string fecha, string hora, string ubicacion, string idUsuario, string idGrupo)
         {
-            String respuesta = executeQueryPOST(URL_PublicarReunion, "Titular=" + titular + "&Descripcion=" + descripcion + "&fecha=" + fecha + "&hora=" + hora + "&Ubicacion=" + ubicacion + "&IdUsuario=" + idUsuario + "&IdGrupo=" + idGrupo);
+            string respuesta = executeQueryPOST(URL_PublicarReunion, "Titular=" + titular + "&Descripcion=" + descripcion + "&fecha=" + fecha + "&hora=" + hora + "&Ubicacion=" + ubicacion + "&IdUsuario=" + idUsuario + "&IdGrupo=" + idGrupo);
 
             try
             {
@@ -196,9 +196,9 @@ namespace ConalWeb2._0.Modelo
             return false;
         }
 
-        public Boolean registrarUsuario(String username, String password, String email, String name, String lastname)
+        public Boolean registrarUsuario(string username, string password, string email, string name, string lastname)
         {
-            String respuesta = executeQueryPOST(URL_RegistrarUsuario, "username=" + username + "&password=" + password + "&email=" + email + "&name=" + name + "&lastname=" + lastname);
+            string respuesta = executeQueryPOST(URL_RegistrarUsuario, "username=" + username + "&password=" + password + "&email=" + email + "&name=" + name + "&lastname=" + lastname);
 
             try
             {
@@ -213,9 +213,9 @@ namespace ConalWeb2._0.Modelo
             return false;
         }
 
-        public Boolean agregarMiembroGrupo(String IdUsuario, String IdGrupo)
+        public Boolean agregarMiembroGrupo(string IdUsuario, string IdGrupo)
         {
-            String respuesta = executeQueryPOST(URL_AgregarMiembroGrupo, "IdUsuario=" + IdUsuario + "&IdGrupo=" + IdGrupo);
+            string respuesta = executeQueryPOST(URL_AgregarMiembroGrupo, "IdUsuario=" + IdUsuario + "&IdGrupo=" + IdGrupo);
 
             try
             {
@@ -231,9 +231,9 @@ namespace ConalWeb2._0.Modelo
         }
 
 
-        public Boolean eliminarMiembroGrupo(String IdUsuario, String IdGrupo)
+        public Boolean eliminarMiembroGrupo(string IdUsuario, string IdGrupo)
         {
-            String respuesta = executeQueryPOST(URL_EliminarMiembroGrupo, "IdUsuario=" + IdUsuario + "&IdGrupo=" + IdGrupo);
+            string respuesta = executeQueryPOST(URL_EliminarMiembroGrupo, "IdUsuario=" + IdUsuario + "&IdGrupo=" + IdGrupo);
 
             try
             {
@@ -249,9 +249,9 @@ namespace ConalWeb2._0.Modelo
         }
         
 
-        public ArrayList selectMiembrosGrupo(String IdGrupo)
+        public ArrayList selectMiembrosGrupo(string IdGrupo)
         {
-            String respuesta = executeQueryPOST(URL_Select_Miembros_Grupo, "IdGrupo=" + IdGrupo);
+            string respuesta = executeQueryPOST(URL_Select_Miembros_Grupo, "IdGrupo=" + IdGrupo);
             ArrayList result = new ArrayList();
 
             try
@@ -262,10 +262,10 @@ namespace ConalWeb2._0.Modelo
                     JToken valores = jsonObject.GetValue("value");
                     foreach (JObject json in valores)
                     { 
-                        String idUsuario = json.Value<string>("IDUsuario");
-                        String nombre = json.Value<string>("Nombre");
-                        String apellido = json.Value<string>("Apellido");
-                        String correo = json.Value<string>("Correo");
+                        string idUsuario = json.Value<string>("IDUsuario");
+                        string nombre = json.Value<string>("Nombre");
+                        string apellido = json.Value<string>("Apellido");
+                        string correo = json.Value<string>("Correo");
                         Usuario u = new Usuario(idUsuario, nombre, apellido, correo);
                         result.Add(u);
                     }
@@ -279,9 +279,9 @@ namespace ConalWeb2._0.Modelo
         }
 
 
-        public ArrayList selectReunionesGrupo(String IdGrupo)
+        public ArrayList selectReunionesGrupo(string IdGrupo)
         {
-            String respuesta = executeQueryPOST(URL_Select_Miembros_Grupo, "IdGrupo=" + IdGrupo);
+            string respuesta = executeQueryPOST(URL_Select_Miembros_Grupo, "IdGrupo=" + IdGrupo);
             ArrayList result = new ArrayList();
 
             try
@@ -294,14 +294,17 @@ namespace ConalWeb2._0.Modelo
                     JToken valores = jsonObject.GetValue("value");
                     foreach (JObject json in valores)
                     {
-                        String idReunion = json.Value<string>("IdReunion");
-                        String idUsuario = json.Value<string>("IdUsuario");
-                        String ubicacion = json.Value<string>("Ubicacion");
-                        String descripcion = json.Value<string>("Descripcion");
-                        String titular = json.Value<string>("Titular");
-                        String fecha = json.Value<string>("Fecha");
-                        String hora = json.Value<string>("Hora");
-                        Reunion u = new Reunion(idReunion, IdGrupo, idUsuario, ubicacion, descripcion, titular, fecha, hora);
+                        System.Diagnostics.Debug.WriteLine("id reunion " + json.Value<string>("IdReunion"));
+                        string idReunion = json.Value<string>("IdReunion");
+                        string idUsuario = json.Value<string>("IdUsuario");
+                        string nombreUsuario = json.Value<string>("Nombre") + " " + json.Value<string>("Apellido") ;
+                        string ubicacion = json.Value<string>("Ubicacion");
+                        string descripcion = json.Value<string>("Descripcion");
+                        string titular = json.Value<string>("Titular");
+                        string fecha = json.Value<string>("Fecha");
+                        string hora = json.Value<string>("Hora");
+                        System.Diagnostics.Debug.WriteLine(idReunion + " ??" + idUsuario + " " + ubicacion + " " + descripcion + " " + titular);
+                        Reunion u = new Reunion(idReunion, IdGrupo, idUsuario, nombreUsuario, ubicacion, descripcion, titular, fecha, hora);
                         result.Add(u);
                     }
 
@@ -313,9 +316,9 @@ namespace ConalWeb2._0.Modelo
             return result;
         }
 
-        public Usuario iniciarSesion(String user, String password)
+        public Usuario iniciarSesion(string user, string password)
         {
-            String respuesta = executeQueryPOST(URL_IniciarSesion, "user=" + user + "&password=" + password);
+            string respuesta = executeQueryPOST(URL_IniciarSesion, "user=" + user + "&password=" + password);
             Usuario u = null;
             try
             {
@@ -323,11 +326,11 @@ namespace ConalWeb2._0.Modelo
                 if (!jsonObject.Value<string>("status").Equals("false"))
                 {
                     JToken valores = jsonObject.GetValue("value");
-                    System.Diagnostics.Debug.WriteLine("valores " + valores.ToString());
-                    String idUsuario = valores.Value<string>("IDUsuario");
-                    String nombre = valores.Value<string>("Nombre");
-                    String apellido = valores.Value<string>("Apellido");
-                    String correo = valores.Value<string>("Correo");
+         
+                    string idUsuario = valores.Value<string>("IDUsuario");
+                    string nombre = valores.Value<string>("Nombre");
+                    string apellido = valores.Value<string>("Apellido");
+                    string correo = valores.Value<string>("Correo");
                     u = new Usuario(idUsuario, nombre, apellido, correo);
                     return u;   
                 }
@@ -336,9 +339,9 @@ namespace ConalWeb2._0.Modelo
             return u;
         }
 
-        public Boolean crearGrupo(String idAdm, String nombre, String descripcion)
+        public Boolean crearGrupo(string idAdm, string nombre, string descripcion)
         {
-            String respuesta = executeQueryPOST(URL_CrearGrupo, "nombre=" + nombre + "&descripcion=" + descripcion + "&adm=" + idAdm);
+            string respuesta = executeQueryPOST(URL_CrearGrupo, "nombre=" + nombre + "&descripcion=" + descripcion + "&adm=" + idAdm);
             try
             {
                 JObject jsonObject = JObject.Parse(respuesta);
@@ -353,7 +356,7 @@ namespace ConalWeb2._0.Modelo
 
         public Boolean validarGrupo(string pNombreGrupo)
         {
-            String respuesta = executeQueryPOST(URL_SelectGrupos, "");
+            string respuesta = executeQueryPOST(URL_SelectGrupos, "");
             ArrayList result = new ArrayList();
             try
             {

@@ -50,16 +50,29 @@
 				</div>
 			</div>
 			<div class="panel-body">
-				<div id = "seccionSucesos" style="display: block;">
-						<p > hola </p>
+                <asp:Panel id = "seccionSucesos" style="display: block;" runat="server" >
+                    <asp:Table ID="tblSucesos" runat="server" Width="100%" CssClass="table-responsive marginToFooter" >
+                    <asp:TableHeaderRow runat="server" CssClass="tableBorder">
+                    </asp:TableHeaderRow>
+                    </asp:Table>
+                </asp:Panel>
 
-				</div>
+                <asp:Panel id = "seccionReuniones" style="display: none;" runat="server" >
+                    <asp:Table ID="tblReuniones" runat="server" Width="100%" CssClass="table-responsive marginToFooter" >
+                    <asp:TableHeaderRow runat="server" CssClass="tableBorder">
+                    </asp:TableHeaderRow>
+                    </asp:Table>
+                </asp:Panel>
+				    <!--<div id = "seccionSucesos" style="display: block;">
+						    <p > hola </p>
 
-				<div id = "seccionReuniones" style="display: none;">
+				    </div>
 
-					<p > como estas </p>
+				    <div id = "seccionReuniones" style="display: none;">
 
-				</div>
+					    <p > como estas </p>
+
+				    </div>-->
 			</div>
 		</div>
 		<div id = "divButton">
