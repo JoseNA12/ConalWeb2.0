@@ -10,139 +10,154 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
+    <script>
+        function appendText(nombreGrupo) {
+            var txt1 = "<a>" + nombreGrupo + "</a>";        // Create text with HTML
+            $("#myDIV").append(txt1);   // Append new elements
+        }
+
+        function myFunction() {
+          var x = document.getElementById("divMisGrupos");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+    </script>
+
     <style>
-        #checkbox-container {
+
+        .vertical-menu {
+          table-layout: fixed;
+          width: 230px;
+          height: 100%; /* Cubrir toda la pantalla de manera vertical */
+          position: fixed; /* Mantener la misma posición en pantalla apesar de haber scroll */
+          left: 0px; /* Pegado a la izquierda de la pantalla */
+          top: 0px; /* Pegado a arriba del todo de la pantalla */
+          background-color: #fff;
+          display: inline-block;
+        }
+
+        .vertical-menu a {
+          width: 100%;
+          background-color: #fff;
+          color: black;
           display: block;
-          float: left;
-          width: 50px;
-          height: 50px;
-          position: fixed;
-          background: black;
-          left:30px;
+          padding: 12px;
+          text-decoration: none;
+
+          border-width: 1px;
+          border-style: solid;
+          border-color: #ccc;
         }
 
-        #menu-content {
-          display: flex;
-          background: white;
-          color: #406295;
-          float: left;
-        }
-
-        #menu-content ul {
-          max-height:650px;
+        .vertical-menu #aMod {
+          width: 100%;
+          background-color: #eeeeee;
+          color: black;
           display: block;
-          padding-left: 0;
-          padding-top: 1em;
-          padding-bottom: 1em;
-          margin: 0;
-          width: 0px;
-          height: 0px;
-          overflow: hidden;
-          transition: height 0.3s ease 0.7s, width 0.7s ease;
+          padding: 12px;
+          text-decoration: none;
+          font-style: normal;
         }
 
-        #menu-content ul li {
-          padding-left: 15px;
-          list-style: none;
-          padding-top: 1em;
-          padding-bottom: 1em;
-          cursor: pointer;
-          transition: color 0.5s, background 0.5s;
+        .vertical-menu #aMod:hover {
+          background-color: #C9D4E1;
         }
 
-        #menu-content ul li:hover {
-          color: #406295;
-          background: #C9D4E1;
+        .vertical-menu a:hover {
+          background-color: #406295;
         }
 
-        .checkbox-trigger {
-          opacity: 0;
-          position: absolute;
-          width: 50px;
-          height: 50px;
-          left: 0px;
-          cursor: pointer;
-          z-index: 5;
+        .vertical-menu a.active {
+          background-color: #4CAF50;
+          color: white;
         }
 
-        .hamburger-menu, .hamburger-menu::before, .hamburger-menu::after {
-          display: block;
-          position: absolute;
-          background: #406295;
-          width: 40px;
-          height: 4px;
-          margin: 1.3em 3em;
-          transition: background 0.3s;
+        td { /* Las celdas tengan el mismo ancho que la columna */
+          width: 25%;
         }
 
-        .hamburger-menu::before, .hamburger-menu::after {
-          content: '';
-          position: absolute;
-          margin: -0.7em 0 0;
-          transition: width 0.7s ease 0.3s, transform 0.7s ease 0.3s;
+        .card { /* Imagen */
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          max-width: 300px;
+          margin: auto;
+          text-align: center;
+          font-family: arial;
         }
 
-        .hamburger-menu::after { margin-top: 0.7em; }
-
-        .hamburger-menu {
-          position: relative;
-          display: block;
-          margin: 0;
-          margin-top: 1.45em;
-          margin-right: 0.35em;
-          margin-left: 0.35em;
-          margin-bottom: 1.45em;
-          transition: width 0.3s ease;
-        }
-
-        .checkbox-trigger:checked { left: 202px; }
-
-        .checkbox-trigger:checked + #menu-content .hamburger-menu {
-          width: 2em;
-          transition: width 2s ease 2s;
-        }
-
-        .checkbox-trigger:checked + #menu-content .hamburger-menu::before {
-          width: 1.2em;
-          transform: rotate(-35deg);
-          margin-top: -0.4em;
-        }
-
-        .checkbox-trigger:checked + #menu-content .hamburger-menu::after {
-          width: 1.2em;
-          transform: rotate(35deg);
-          margin-top: 0.4em;
-        }
-
-        .checkbox-trigger:checked + #menu-content ul {
-            overflow: auto;
-            width: 200px;
-            height: auto;
-            transition: width 2s ease 0.3s, height 2s ease;
+        #divMisGrupos{
+            background-color: #ccc;
+            height: 300px;
+            overflow-y: auto;
         }
 
     </style>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <body>
-    
+
+    <!--
     <span class="checkbox-container" id="checkbox-container">
       <input class="checkbox-trigger" type="checkbox"  />
       <span class="menu-content" id="menu-content">
-          <ul>
+          <ul id="id_menu">
             <li>Home</li>
             <li>About</li>
             <li>Contact</li>
             <li>Blog</li>
             <li>Social</li>
-             
           </ul>
+          
         <span class="hamburger-menu"></span>
       </span>
-    </span>
+    </span>-->
+
+    <asp:Table ID="tblMenu" runat="server" CssClass="vertical-menu">
+        <asp:TableRow>
+            <asp:TableCell>
+                <div class="imagenPerfil" runat="server">
+                  
+                    <div onclick="location.href='VerPerfil.aspx';" style="cursor:pointer;"><img src="img/team2.jpg" alt="John" style="width:100%"> </div>
+                </div>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <a href="PaginaPrincipal.aspx">Inicio</a>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <a href="CrearGrupo.aspx">Crear grupo</a>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell ID="cellMisGrupos">
+                <a onclick="myFunction()">Mis grupos</a>
+                <!--<button onclick="myFunction()">Mis grupos</button>-->
+                <div id="divMisGrupos" runat="server">
+                
+                </div>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <a href="InicioSesion.aspx">Cerrar sesión</a>
+            </asp:TableCell>
+        </asp:TableRow>
+
+    </asp:Table>
 
     <section class="content" style="margin-left:5%; margin-right:5%;">
         <form id="form1" runat="server">
+            <asp:ScriptManager ID="ScriptManagerMain"
+                runat="server">
+            </asp:ScriptManager>
+
             <div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <!-- CARGA EL DISEÑO DE LA PÁGINA QUE HEREDA -->
@@ -159,6 +174,10 @@
         function w3_close() {
           document.getElementById("mySidebar").style.display = "none";
         }
+
+        
+          
+        
     </script>
 </body>
 </html>

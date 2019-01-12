@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConalWeb2._0.Modelo;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,32 @@ namespace ConalWeb2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            llenarTabla();
+        }
 
+        protected void llenarTabla()
+        {
+            ArrayList grupos = ConexionBD.getInstance().cargarGruposPertenece("josuarez");
+            //tblMenu.Rows.Clear();
+
+            //comienza a crear la tabla
+            //TableRow row = new TableRow();
+            //TableCell campo = new TableCell();
+
+            if (tblMenu != null)
+            {
+
+                foreach (Grupo grupo in grupos)
+                {
+                    //Table table = (Table)Page.Form.FindControl("tblMenu");
+                    //"<script type='text/javascript'>appendText(" + grupo.getNombre() + ");</script>"
+                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "progressbar", "appendText('" + grupo.getNombre() + "');", true);
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "appendText('" + grupo.getNombre() + "');", true);
+
+                    divMisGrupos.Controls.Add(new LiteralControl("<a id='aMod' href='VerPublicacionesGrupo.aspx'>" + grupo.getNombre() + "</a>"));
+
+                }
+            }
         }
     }
 }
