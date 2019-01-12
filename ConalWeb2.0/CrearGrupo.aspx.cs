@@ -18,25 +18,39 @@ namespace ConalWeb2._0
         }
 
    
-
-        /*protected void btnCrearGrupo_Click(object sender, EventArgs e)
+        public void btn_CrearGrupo(object sender, EventArgs e)
         {
-            if (ConexionBD.getInstance.iniciarSesion(usuario, contrasena))
+            if (validarNombreGrupo())
             {
-                Response.Redirect("frmBoletines.aspx", false);
+                Boolean creacionGrupo = ConexionBD.getInstance().crearGrupo("josuarez3", inputNombre.Text, Request["inputDescripcion"]);
+                if (creacionGrupo)
+                {
+                    Response.Write("<script>alert('Se ha creado el grupo " + inputNombre.Text + " correctamente!')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('No se ha podido crear el grupo.')</script>");
+                }
             }
             else
             {
-                Response.Write("<script>alert('Nombre de usuario o contrasena incorrecta.')</script>");
+                Response.Write("<script>alert('Ya existe un grupo con el nombre que ha indicado.')</script>");
             }
-        }*/
-
-        public void pruebajeje(object sender, EventArgs e)
-        {
-            Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Hello this is an Alert')</SCRIPT>");
+             
         }
 
-        protected void UploadFile(object sender, EventArgs e)
+        private Boolean validarNombreGrupo()
+        {
+            Boolean validarNombreGp = ConexionBD.getInstance().validarGrupo(inputNombre.Text);
+            if (validarNombreGp)
+            {
+                return true;
+            }
+            return false;
+        }
+        
+
+        /*protected void UploadFile(object sender, EventArgs e)
         {
             string folderPath = Server.MapPath("~/Files/");
 
@@ -52,7 +66,7 @@ namespace ConalWeb2._0
 
             //Display the Picture in Image control.
             Image1.ImageUrl = "~/Files/" + Path.GetFileName(FileUpload1.FileName);
-        }
+        }*/
 
     }
 }

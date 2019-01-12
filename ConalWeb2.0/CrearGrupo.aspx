@@ -15,20 +15,15 @@
             <div class="container" id="container2">
                 <div class="tab">
                     <label id="idPrueba" for="nombre">Nombre</label>
-                    <p><asp:TextBox runat="server" id="inputTitular" placeholder="Nombre del grupo" oninput="this.className = ''" name="titular"/></p>
+                    <p><asp:TextBox runat="server" id="inputNombre" placeholder="Nombre del grupo" oninput="this.className = ''" name="titular"/></p>
                     <label for="subject">Descripción</label>
                     <p><Textarea id="inputDescripcion" rows="4" cols="50" name="inputDescripcion" placeholder="Descripción del grupo.."></Textarea></p>
 
-                    <label for="subject">Imagen</label>
-                    <asp:FileUpload ID="FileUpload1" runat="server" /><br>
-                    <asp:Button type="file" name="image" runat="server" id="btnUpload" OnClick="UploadFile" Text="Mostrar imagen" CssClass="btnMostrarImg" />
-
-                    <asp:Image ID="Image1" runat="server" Height = "100" Width = "100" CssClass="imagen"/>
                     <br>
                     <br>                    
                 </div><br><br>
                 <div class="tab" id="idButtonCrearGp">
-                    <asp:Button class="btnCrearGrupo" name="btnCrearGp" runat="server" Text="Crear Grupo"  OnClick="pruebajeje" />
+                    <asp:Button class="btnCrearGrupo" name="btnCrearGp" runat="server" Text="Crear Grupo"  OnClick="btn_CrearGrupo" />
                 </div>                               
             </div>
         </div>
