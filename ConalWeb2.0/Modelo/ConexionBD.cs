@@ -55,7 +55,7 @@ namespace ConalWeb2._0.Modelo
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
             request.Method = "POST";
             byte[] data = Encoding.ASCII.GetBytes(parametros);
-
+           
             request.ContentType = "application/x-www-form-urlencoded";
             request.ContentLength = data.Length;
             //    request.AutomaticDecompression = DecompressionMethods.GZip;
