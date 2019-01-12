@@ -121,9 +121,11 @@ namespace ConalWeb2._0.Modelo
                 JObject jsonObject = JObject.Parse(respuesta);
                 if (!jsonObject.Value<string>("status").Equals("false"))
                 {
+                    System.Diagnostics.Debug.WriteLine("parada 1");
                     JToken valores = jsonObject.GetValue("value");
                     foreach (JObject json in valores)
                     {
+                        System.Diagnostics.Debug.WriteLine("parada 2");
                         String idGrupo = json.Value<string>("IdGrupo");
                         String idAdm = json.Value<string>("IdAdministrador");
                         String nombre = json.Value<string>("Nombre");
@@ -179,7 +181,7 @@ namespace ConalWeb2._0.Modelo
 
         public Boolean publicarReunion(String titular, String descripcion, String fecha, String hora, String ubicacion, String idUsuario, String idGrupo)
         {
-            String respuesta = executeQueryPOST(URL_PublicarReunion, "Titular=" + titular + "&Descripcion=" + descripcion + "&fecha=" + fecha + "&hora=" + hora + "&Ubicacion=" + ubicacion + "&idUsuario=" + idUsuario + "&idGrupo=" + idGrupo);
+            String respuesta = executeQueryPOST(URL_PublicarReunion, "Titular=" + titular + "&Descripcion=" + descripcion + "&fecha=" + fecha + "&hora=" + hora + "&Ubicacion=" + ubicacion + "&IdUsuario=" + idUsuario + "&IdGrupo=" + idGrupo);
 
             try
             {

@@ -47,6 +47,12 @@
 			<div class="container" id="container2">
                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombre.." title="Type in a name">
 
+
+                <asp:Table ID="tblGruposNoPertenece" runat="server" Width="100%" CssClass="table-responsive marginToFooter" >
+                    <asp:TableHeaderRow runat="server" CssClass="tableBorder">
+                    </asp:TableHeaderRow>
+                </asp:Table>
+                <!--
                 <ul id="myUL">
                   <li>
                       <p>

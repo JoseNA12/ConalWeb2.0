@@ -23,5 +23,30 @@ namespace ConalWeb2._0.Modelo
             this.img = img;
             this.nombre_img = nombre_img;
         }
+        public String getIdGrupo()
+        {
+            return this.idGrupo;
+        }
+
+        public String getIdAdministrador()
+        {
+            return this.idAdm;
+        }
+
+        public String getNombre()
+        {
+            return this.nombre;
+        }
+
+        public String getDescripcion()
+        {
+            return this.descripcion;
+        }
+
+        public String getImagen()
+        {
+            return this.img;
+        }
+
     }
 }

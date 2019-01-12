@@ -11,7 +11,7 @@ namespace ConalWeb2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString();
         }
     }
 }

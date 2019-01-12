@@ -20,11 +20,19 @@ namespace ConalWeb2._0.Modelo
             this.correo = correo;
         }
 
+        public String getIdUsuario()
+        {
+            return this.idUsuario;
+        }
+
         public String getNombre()
         {
             return this.nombre;
         }
 
-
+        public string getCorreo()
+        {
+            return this.correo;
+        }
     }
 }
