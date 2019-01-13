@@ -73,7 +73,7 @@
                   <li><a href="#">Cindy</a></li>
                 </ul>
                 <br />
-                <br />
+                <br /> -->
                 <p style="text-align:center;">
                     
                     <asp:Button class="button button2" runat="server" Text="Encontrar grupos" />
