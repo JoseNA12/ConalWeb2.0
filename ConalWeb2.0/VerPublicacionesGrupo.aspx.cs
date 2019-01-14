@@ -14,7 +14,7 @@ namespace ConalWeb2._0
     public partial class VerPublicacionesGrupo : System.Web.UI.Page
     {
         public String pruebaVar = "'hola'";
-        public ArrayList sucesos;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,7 +40,7 @@ namespace ConalWeb2._0
                 //AGREGA LA INFORMACION DEL EVENTO
                 campo = new TableCell();
                 campo.Text = "<b><h1>" + reunion.getTitular() + "</h1></b> " + "<br/>" +
-                               "<b> Autor: </b>" + reunion.getNombreUsuario() + "<br/><br/>" +
+                            "<b> Autor: </b>" + reunion.getNombreUsuario() + "<br/><br/>" +
                 "<i> <a id='" + x + "' class='link' href='#miModal'>Ingresar a publicación </a></i>";
            
                 campo.Attributes.Add("Style", "width: 100%; height: 150px;");
@@ -53,7 +53,8 @@ namespace ConalWeb2._0
 
         protected void llenarTablaSuceso()
         {
-            ArrayList sucesos = ConexionBD.getInstance().selectSucesosGrupo("1");
+            ArrayList sucesosTemp = ConexionBD.getInstance().selectSucesosGrupo("1");
+            ClaseGlobal.getInstancia().setSucesos(sucesosTemp);
             //limpia la tabla para meter los nuevos valores
             tblSucesos.Rows.Clear();
        
@@ -62,48 +63,24 @@ namespace ConalWeb2._0
             TableRow row = new TableRow();
             TableCell campo = new TableCell();
             int x = 0;
-            foreach (Suceso suceso in sucesos)
+            foreach (Suceso suceso in ClaseGlobal.getInstancia().getSucesos())
             {
 
                 row = new TableRow();
 
                 //AGREGA LA INFORMACION DEL EVENTO
                 campo = new TableCell();
-                campo.Text = "<b><h1>" + suceso.getTitular() + "</h1></b> " + "<br/>" +
-                               "<b> Autor: </b>" + suceso.getNombreUsuario() + "<br/><br/>" +
-                "<i> <a id='" + x + "' class='link' href='#miModal'>Ingresar a publicación </a> </i>";
+                campo.Text = "<b><h1>" + suceso.getTitular() + "</h1></b> " + "<br/>" + "<b> Autor: </b>" + suceso.getNombreUsuario() + "<br/><br/>" +
+                "<i> <a id='" + x + "' class='link' >Ingresar a publicación </a> </i>";
                 campo.Attributes.Add("Style", "width: 100%; height: 150px;");
-                row.Cells.Add(campo);
-                Response.Write("<script>alert('pasando el id " + x + "')</script>");
-                Button button = new Button();
-                button.Text = "Ver mapa";
-                button.CssClass = "btn btn-default botonCelda";
-                button.Click += delegate
-                {
-                    Response.Redirect("VerSuceso.aspx?IDSuceso=" + x);
-                    //HttpContext.Current.Session.Add(ClaseGlobal.sessionKey_usuarioNombre, u.getNombre());
-                };
-                campo = new TableCell();
-                campo.Controls.Add(button);
-                row.Cells.Add(campo);
+                row.Cells.Add(campo);             
                 row.Attributes.Add("Style", "color: black; background-color: #C9D4E1");
                 tblSucesos.Rows.Add(row);
                 x += 1;
 
             }
         }
-        protected void verSuceso()
-        {
-      
-            string x = Labelprueba.Text.ToString();
-            titularSuceso.Text = x;
-            Response.Write("alert('paso 4: "+x+"')");
-        }
 
-        protected void prueba()
-        {
-            Response.Write("alert('paso ?: "+ Labelprueba.Text.ToString() + "')");
-        }
 
         
     }

@@ -31,6 +31,7 @@ namespace ConalWeb2._0
                 HttpContext.Current.Session.Add(ClaseGlobal.sessionKey_usuarioApellidos, u.getApellidos());
                 HttpContext.Current.Session.Add(ClaseGlobal.sessionKey_usuarioNombreUsuario, u.getIdUsuario());
                 HttpContext.Current.Session.Add(ClaseGlobal.sessionKey_usuarioCorreo, u.getCorreo());
+                HttpContext.Current.Session.Add(ClaseGlobal.sessionKey_usuarioImagenPerfil, u.getImgPerfil());
                 Response.Redirect("PaginaPrincipal.aspx", false);
                 //Response.Write("<script>alert('" + u.getNombre() + "')</script>");
 

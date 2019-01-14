@@ -109,20 +109,10 @@
             });
 
             $('.link').click(function (e) {
-                var a = $('.link').attr('id'); 
-                alert("id " + a);
-                $('#YourHiddenField').val(a);
-                alert("paso 2");
-                $(<%=Labelprueba.ClientID%>).text(a);
-                alert("paso 3: " + $(<%=Labelprueba.ClientID%>).text());
-                <% verSuceso();%>;
-                alert("ultimo paso");
-                <% prueba();%>;
+                window.location.href='VerSuceso.aspx?id='+ $(this).attr('id');               
 			});
-
         });
 
-       
 	</script>
 
    
@@ -167,31 +157,7 @@
 			<button type="button" class = "buttonGrupos" style = "margin: 25px auto auto 20em;">Salir del grupo</button>
 		</div>
 
-       <asp:Panel runat="server" ID="miModal" class="modal">
-            <div class="modal-contenido" onload="cargarSuceso()">
-                <asp:label runat="server" id = "Labelprueba" class = "txt" Text="Titular"></asp:label>
-                <asp:HiddenField ID="YourHiddenField" runat="server" ClientIDMode="Static" />
-                <asp:label runat="server" id = "titularSuceso" class = "txt" Text="Titular"></asp:label> <asp:label runat="server" id = "fechaSuceso" class = "txt"></asp:label> <asp:label runat="server" id = "horaSuceso" class = "txt"></asp:label> 
-		        <span  class="close" title="Close Modal">&times;</span>
-
-		        <div id = "divMapa" class = "divSuceso">
-			
-		        </div>
-
-		        <div id = "divDesc" class = "divSuceso">
-			        <p id = "descripcionSuceso" class = "titulos"> Descripción </p>
-		        </div>
-		
-		        <div id = "divSospechoso" class = "divSuceso">
-			        <p id = "sospechosoSuceso" class = "titulos"> Sospechosos </p>
-		        </div>
-		
-		        <div id = "divUbicacion" class = "divSuceso">
-			        <p id = "ubicacionSuceso" class = "titulos"> Ubicación </p>
-		        </div>
-            </div>  
-       </asp:Panel>
-        
+     
     </form>
 </body>
 </html>

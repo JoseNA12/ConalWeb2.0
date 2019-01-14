@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ConalWeb2._0.Modelo;
 
 namespace ConalWeb2._0
 {
@@ -11,9 +12,16 @@ namespace ConalWeb2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Request.QueryString["IDSuceso"]))
+            if (!string.IsNullOrEmpty(Request.QueryString["id"]))
             {
-                Response.Write("<script>alert('prueba " + Request.QueryString["IDSuceso"] + "')</script>");
+                int i = Int32.Parse(Request.QueryString["id"]);
+                Suceso prueba = (Suceso) ClaseGlobal.getInstancia().getSucesos()[i];
+                titularSuceso.Text = prueba.getTitular();
+                fechaSuceso.Text = prueba.getFecha();
+                horaSuceso.Text = prueba.getHora();
+                descripcionSuceso.Text = prueba.getDescripcion();
+                sospechosoSuceso.Text = prueba.getSospechosos();
+                ubicacionSuceso.Text = prueba.getUbicacion();
             }
             else
             {

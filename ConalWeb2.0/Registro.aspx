@@ -8,8 +8,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    
     <link rel="stylesheet" href="CSS/CSS_InicioSesion.css" type="text/css"/>
     <title>Crear cuenta</title>
+
+    <script> 
+
+        function mostrarMensaje(mensaje) {
+            alert(mensaje);
+        }
+
+    </script>
 </head>
 <body>
 
@@ -33,7 +43,7 @@
         <div id="divSecond">
             <br/>
             <form id="form2" runat="server">
-                <h4 id="h4DivSecond">Nombre</h4>
+                <h4 id="h4DivSecond">Nombre</h4>  
                 <asp:TextBox runat="server" id="inputNombre" type="text" name="nombre" />
                 <br/>
                 <h4 id="h4DivSecond">Apellidos</h4>
@@ -48,6 +58,11 @@
                 <h4 id="h4DivSecond">Contraseña</h4>
                 <asp:TextBox runat="server" type="password" id="inputContrasenia" name="contrasenia" placeholder="pepito123" />
 
+                <!---------------------- PRUEBA DE IMAGEN ------------------------------------------->
+                <h4 id="h4DivSecond">Imagen de perfil (Opcional)</h4>
+                <asp:FileUpload ID="FileUpload1" runat="server"/>
+                <asp:Image ID="ImagenPerfil" runat="server"  />
+                <!----------------------------------------------------------------->
                 <br/><br/>
                 <div align="center">
                     <asp:Button runat="server" class="button button2" Text="Registrase" onClick="btnCrearCuenta" />
@@ -58,5 +73,8 @@
         <br/>
         <br/>
     </div>
+
+    
+
 </body>
 </html>

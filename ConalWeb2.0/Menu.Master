@@ -5,12 +5,57 @@
 <html>
 <head runat="server">
     <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
     <script>
+        function prueba(parametro1, parametro2) {
+            $("#lblprueba").attr("id",parametro1);
+        }
+
+
+        $(document).ready(function () {
+            var test;
+            var config =
+            {
+                apiKey: "AIzaSyDvI37M59STMIy3dXBFIbZeECa_jPmn3yE",
+                authDomain: "conalweb2-0.firebaseapp.com",
+                databaseURL: "https://conalweb2-0.firebaseio.com",
+                storageBucket: "conalweb2-0.appspot.com",
+            };
+                
+            firebase.initializeApp(config);
+            var storage = firebase.storage();
+            var storageRef = storage.ref();
+            var tangRef = storageRef.child('ImgsPerfil/' + '<%=HttpContext.Current.Session["USUARIO_ACTUAL_IMAGEN_PERFIL"] %>');
+            tangRef.getDownloadURL().then(function (url) {
+                test = url;
+
+                
+                $("#imagenPerfil").attr("src", test);
+                 $("#imgPerfil1").attr("src", test);
+            }).catch(function (error) {
+                switch (error.code) {
+                    case 'storage/object_not_found':
+                        break;
+
+                    case 'storage/unauthorized':
+                        break;
+
+                    case 'storage/canceled':
+                        break;
+
+                    case 'storage/unknown':
+                        break;
+                }
+            });
+        });
+
+
         function appendText(nombreGrupo) {
             var txt1 = "<a>" + nombreGrupo + "</a>";        // Create text with HTML
             $("#myDIV").append(txt1);   // Append new elements
@@ -89,10 +134,10 @@
 
         #divMisGrupos{
             background-color: #ccc;
-            height: 300px;
+            height: auto;
             overflow-y: auto;
+            max-height: 300px;
         }
-
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -119,9 +164,8 @@
     <asp:Table ID="tblMenu" runat="server" CssClass="vertical-menu">
         <asp:TableRow>
             <asp:TableCell>
-                <div class="imagenPerfil" runat="server">
-                  
-                    <div onclick="location.href='VerPerfil.aspx';" style="cursor:pointer;"><img src="img/team2.jpg" alt="John" style="width:100%"> </div>
+                <div class="imagenPerfil" runat="server" >                  
+                    <div  onclick="location.href='VerPerfil.aspx';" style="{cursor: pointer;}"><img id="imagenPerfil" style="width:100%"> </div>
                 </div>
             </asp:TableCell>
         </asp:TableRow>

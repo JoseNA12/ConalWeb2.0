@@ -11,24 +11,23 @@
 </head>
 <body>
     <form id="form1" runat="server">
-		<p> <span id = "titularSuceso" class = "txt">Titular</span> <span id = "fechaSuceso" class = "txt">Fecha</span> <span id = "horaSuceso" class = "txt">Hora</span> </p>
+		<asp:label runat="server" id = "titularSuceso" class = "txt">Titular</asp:label> <asp:label runat="server" ID ="fechaSuceso" class = "txt">Fecha</asp:label> <asp:label runat="server" id = "horaSuceso" class = "txt">Hora</asp:label> 
 
-		<span  class="close" title="Close Modal">&times;</span>
-
-		<div id = "divMapa" class = "divSuceso">
-			
-		</div>
-
+		<!--<span  class="close" title="Close Modal">&times;</span>-->
+        <br>
+        <br>
+        <br>
+        <br>
 		<div id = "divDesc" class = "divSuceso">
-			<p id = "descripcionSuceso" class = "titulos"> Descripción </p>
+			<asp:label runat="server" id = "descripcionSuceso" class = "titulos"> Descripción </asp:label>
 		</div>
-		
+		<br>
 		<div id = "divSospechoso" class = "divSuceso">
-			<p id = "sospechosoSuceso" class = "titulos"> Sospechosos </p>
+			<asp:label runat="server" id = "sospechosoSuceso" class = "titulos"> Sospechosos </asp:label>
 		</div>
-		
+		<br>
 		<div id = "divUbicacion" class = "divSuceso">
-			<p id = "ubicacionSuceso" class = "titulos"> Ubicación </p>
+			<asp:label runat="server" id = "ubicacionSuceso" class = "titulos"> Ubicación </asp:label>
 		</div>
 
     </form>
