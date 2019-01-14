@@ -18,16 +18,22 @@
         <br>
         <br>
         <br>
+        <asp:label runat="server" id = "Label1" class = "txt"> Descripción </asp:label>
 		<div id = "divDesc" class = "divSuceso">
-			<asp:label runat="server" id = "descripcionSuceso" class = "titulos"> Descripción </asp:label>
+            <br>
+			<asp:label runat="server" id = "descripcionSuceso" class = "info"> Descripción del suceso </asp:label>
 		</div>
 		<br>
+        <asp:label runat="server" id = "Label2" class = "txt"> Sospechosos </asp:label>
 		<div id = "divSospechoso" class = "divSuceso">
-			<asp:label runat="server" id = "sospechosoSuceso" class = "titulos"> Sospechosos </asp:label>
+            <br>
+			<asp:label runat="server" id = "sospechosoSuceso" class = "info"> Sospechosos del suceso </asp:label>
 		</div>
 		<br>
+        <asp:label runat="server" id = "Label3" class = "txt"> Ubicación </asp:label>
 		<div id = "divUbicacion" class = "divSuceso">
-			<asp:label runat="server" id = "ubicacionSuceso" class = "titulos"> Ubicación </asp:label>
+            <br>
+			<asp:label runat="server" id = "ubicacionSuceso" class = "info"> Ubicación del suceso </asp:label>
 		</div>
 
     </form>
