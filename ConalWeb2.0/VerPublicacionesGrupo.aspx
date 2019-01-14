@@ -11,47 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link type="text/css" rel="stylesheet" href="CSS/CSS_VerPublicacionesGrupo.css">
 
-    <script>
-		$(function() {
-
-			$('#headerSucesos').click(function(e) {
-				$("#seccionSucesos").delay(100).fadeIn(100);
-				$("#seccionReuniones").fadeOut(100);
-				$('#headerReuniones').removeClass('active');
-				$(this).addClass('active');
-				e.preventDefault();
-			});
-			
-			$('#headerReuniones').click(function(e) {
-				$("#seccionReuniones").delay(100).fadeIn(100);
-				$("#seccionSucesos").fadeOut(100);
-				$('#headerSucesos').removeClass('active');
-				$(this).addClass('active');
-				e.preventDefault();
-            });
-
-            $('.link').click(function (e) {
-                var a = $('.link').attr('id');      
-                $.ajax({
-                    type: "POST",
-                    url: '<%= ResolveUrl("VerPublicacionesGrupo.aspx/verSuceso") %>', //"VerPublicacionesGrupo.aspx/verSuceso",
-                    data: { idSuceso: a },
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: OnSuccess
-                });
-
-                function OnSuccess(response) {
-                    alert(response.d);
-                }
-             
-     
-			});
-
-        });
-
-       
-	</script>
+    
 
     <style>
         .modal-contenido{
@@ -61,7 +21,6 @@
             width:70%;
             margin: auto;
             position: relative;
-            overflow: scroll;
         }
         .modal{
             background-color: rgba(0,0,0,.8);
@@ -130,6 +89,42 @@
 
     </style>
 
+    <script>
+		$(function() {
+
+			$('#headerSucesos').click(function(e) {
+				$("#seccionSucesos").delay(100).fadeIn(100);
+				$("#seccionReuniones").fadeOut(100);
+				$('#headerReuniones').removeClass('active');
+				$(this).addClass('active');
+				e.preventDefault();
+			});
+			
+			$('#headerReuniones').click(function(e) {
+				$("#seccionReuniones").delay(100).fadeIn(100);
+				$("#seccionSucesos").fadeOut(100);
+				$('#headerSucesos').removeClass('active');
+				$(this).addClass('active');
+				e.preventDefault();
+            });
+
+            $('.link').click(function (e) {
+                var a = $('.link').attr('id'); 
+                alert("id " + a);
+                $('#YourHiddenField').val(a);
+                alert("paso 2");
+                $(<%=Labelprueba.ClientID%>).text(a);
+                alert("paso 3: " + $(<%=Labelprueba.ClientID%>).text());
+                <% verSuceso();%>;
+                alert("ultimo paso");
+                <% prueba();%>;
+			});
+
+        });
+
+       
+	</script>
+
    
 </head>
 <body>
@@ -172,9 +167,11 @@
 			<button type="button" class = "buttonGrupos" style = "margin: 25px auto auto 20em;">Salir del grupo</button>
 		</div>
 
-       <div id="miModal" class="modal">
+       <asp:Panel runat="server" ID="miModal" class="modal">
             <div class="modal-contenido" onload="cargarSuceso()">
-               <p> <span id = "titularSuceso" class = "txt">Titular</span> <span id = "fechaSuceso" class = "txt">Fecha</span> <span id = "horaSuceso" class = "txt">Hora</span> </p>
+                <asp:label runat="server" id = "Labelprueba" class = "txt" Text="Titular"></asp:label>
+                <asp:HiddenField ID="YourHiddenField" runat="server" ClientIDMode="Static" />
+                <asp:label runat="server" id = "titularSuceso" class = "txt" Text="Titular"></asp:label> <asp:label runat="server" id = "fechaSuceso" class = "txt"></asp:label> <asp:label runat="server" id = "horaSuceso" class = "txt"></asp:label> 
 		        <span  class="close" title="Close Modal">&times;</span>
 
 		        <div id = "divMapa" class = "divSuceso">
@@ -193,7 +190,7 @@
 			        <p id = "ubicacionSuceso" class = "titulos"> Ubicación </p>
 		        </div>
             </div>  
-       </div>
+       </asp:Panel>
         
     </form>
 </body>
