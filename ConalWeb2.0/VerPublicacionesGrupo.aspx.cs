@@ -77,8 +77,5 @@ namespace ConalWeb2._0
 
             }
         }
-
-
-        
     }
 }

@@ -35,7 +35,8 @@ namespace ConalWeb2._0
                     //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "progressbar", "appendText('" + grupo.getNombre() + "');", true);
                     //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "appendText('" + grupo.getNombre() + "');", true);
 
-                    divMisGrupos.Controls.Add(new LiteralControl("<a id='aMod' href='VerPublicacionesGrupo.aspx?idGrupo=" + grupo.getIdGrupo() + "'>" + grupo.getNombre() + "</a>"));
+                    divMisGrupos.Controls.Add(new LiteralControl("<a id='" + grupo.getIdGrupo() + "' class='link' >" + grupo.getNombre() + "</a>"));
+                    //divMisGrupos.Controls.Add(new LiteralControl("<a id='aMod' href='VerPublicacionesGrupo.aspx?idGrupo=" + grupo.getIdGrupo() + "'>" + grupo.getNombre() + "</a>"));
 
                 }
             }

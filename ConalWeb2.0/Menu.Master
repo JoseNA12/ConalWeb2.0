@@ -52,6 +52,10 @@
                     case 'storage/unknown':
                         break;
                 }
+                });
+
+            $('.link').click(function (e) {
+                window.location.href='VerPublicacionesGrupo.aspx?idGrupo='+ $(this).attr('id');
             });
         });
 
@@ -101,7 +105,7 @@
           border-color: #ccc;
         }
 
-        .vertical-menu #aMod {
+        .vertical-menu .link {
           width: 100%;
           background-color: #eeeeee;
           color: black;
@@ -111,7 +115,7 @@
           font-style: normal;
         }
 
-        .vertical-menu #aMod:hover {
+        .vertical-menu .link:hover {
           background-color: #C9D4E1;
         }
 
