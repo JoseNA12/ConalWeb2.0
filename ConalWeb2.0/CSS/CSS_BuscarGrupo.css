@@ -69,7 +69,7 @@
     margin: 0;
 }
 
-#myUL li a {
+.myUL{
     border: 1px solid #ddd;
     margin-top: -1px; /* Prevent double borders */
     background-color: #f6f6f6;

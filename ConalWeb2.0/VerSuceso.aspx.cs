@@ -11,7 +11,14 @@ namespace ConalWeb2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(Request.QueryString["IDSuceso"]))
+            {
+                Response.Write("<script>alert('prueba " + Request.QueryString["IDSuceso"] + "')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('no funca')</script>");
+            }
         }
     }
 }

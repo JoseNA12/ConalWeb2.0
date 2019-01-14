@@ -26,6 +26,7 @@ namespace ConalWeb2._0.Modelo
         private static string URL_SelectGrupos = host + "Grupo/Select_Grupos.php";
 
         private static string URL_PublicarSuceso = host + "Suceso/CrearSuceso.php";
+        private static string URL_SelectSucesos = host + "Suceso/Select_Sucesos_de_Grupo.php";
 
         private static string URL_PublicarReunion = host + "Reunion/Insert_Reunion.php";
         private static string URL_SelectReuniones = host + "Reunion/Select_Reuniones_De_Grupo.php";
@@ -280,7 +281,7 @@ namespace ConalWeb2._0.Modelo
 
         public ArrayList selectReunionesGrupo(string IdGrupo)
         {
-            string respuesta = executeQueryPOST(URL_Select_Miembros_Grupo, "IdGrupo=" + IdGrupo);
+            string respuesta = executeQueryPOST(URL_SelectReuniones, "IdGrupo=" + IdGrupo);
             ArrayList result = new ArrayList();
 
             try
@@ -304,6 +305,44 @@ namespace ConalWeb2._0.Modelo
                         string hora = json.Value<string>("Hora");
                         System.Diagnostics.Debug.WriteLine(idReunion + " ??" + idUsuario + " " + ubicacion + " " + descripcion + " " + titular);
                         Reunion u = new Reunion(idReunion, IdGrupo, idUsuario, nombreUsuario, ubicacion, descripcion, titular, fecha, hora);
+                        result.Add(u);
+                    }
+
+                }
+
+            }
+            catch (Exception e) { }
+
+            return result;
+        }
+
+        public ArrayList selectSucesosGrupo(string IdGrupo)
+        {
+            string respuesta = executeQueryPOST(URL_SelectSucesos, "IdGrupo=" + IdGrupo);
+            ArrayList result = new ArrayList();
+
+            try
+            {
+                JObject jsonObject = JObject.Parse(respuesta);
+                if (!jsonObject.Value<string>("status").Equals("false"))
+                {
+
+                    // IdReunion	IdGrupo	IdUsuario	Ubicacion	Descripcion	Titular	Fecha	Hora
+                    JToken valores = jsonObject.GetValue("value");
+                    foreach (JObject json in valores)
+                    {
+                        System.Diagnostics.Debug.WriteLine("id reunion " + json.Value<string>("IdReunion"));
+                        string idSuceso = json.Value<string>("IdSuceso");
+                        string idUsuario = json.Value<string>("IdUsuario");
+                        string nombreUsuario = json.Value<string>("Nombre") + " " + json.Value<string>("Apellido");
+                        string ubicacion = json.Value<string>("Ubicacion");
+                        string descripcion = json.Value<string>("Descripcion");
+                        string sospechosos = json.Value<string>("Sospechosos");
+                        string titular = json.Value<string>("Titular");
+                        string fecha = json.Value<string>("Fecha");
+                        string hora = json.Value<string>("Hora");
+                       
+                        Suceso u = new Suceso(idSuceso, IdGrupo, idUsuario, nombreUsuario, ubicacion, descripcion, titular, fecha, hora, sospechosos);
                         result.Add(u);
                     }
 
