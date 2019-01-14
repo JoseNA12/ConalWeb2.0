@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        #myMap {
+            width: 80%;
+            height: 330px;
+            background-color: grey;
+        }
+    </style>
+
+    <!-- MapQuest -->
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+
+    <script type="text/javascript">
+        function tequiero() {
+            L.mapquest.key = 'wI7GzCgGRmAdCee5rNJRu2yLnnuEbgiB';
+
+            var map = L.mapquest.map('map', {
+                center: [9.9333, -84.0833],
+                layers: L.mapquest.tileLayer('map'),
+                zoom: 12
+            });
+
+            map.addControl(L.mapquest.control());
+        }
+    </script>
+
+    <!-- MapQuest -->
+
+</head>
+<body>
+
+    <!--
+        <div id='printoutPanel'></div>
+
+        <div id="myMap"></div>
+
+        <script type='text/javascript'>
+            function loadMapScenario() {
+                var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
+                /*Microsoft.Maps.loadModule('Microsoft.Maps.SpatialMath', function () {
+                    var center = map.getCenter();
+                    var dms = Microsoft.Maps.SpatialMath.toDegMinSec(center);
+                    document.getElementById('printoutPanel').innerHTML = '<b>Map center</b> <br>' + dms;
+                });*/
+            }
+        </script>
+        <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Ajv3c_U3GnhrrRF0KDDoTwQib73dVhkBIWdnvPaX0my9NYN8ZXsN4WhyhCkaq6Cl&callback=loadMapScenario' async defer></script>
+    -->
+
+    <div id="map" style="width: 100%; height: 530px;"></div>
+
+    <input id="Button1" type="button" value="button" onclick="tequiero()" />
+
+</body>
+</html>
