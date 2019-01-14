@@ -21,7 +21,7 @@ namespace ConalWeb2._0
 
         protected void llenarTablaReunion(string pIdGrupo)
         {
-            ArrayList reunionesTemp = ConexionBD.getInstance().selectReunionesGrupo("1");
+            ArrayList reunionesTemp = ConexionBD.getInstance().selectReunionesGrupo(pIdGrupo);
             ClaseGlobal.getInstancia().setReuniones(reunionesTemp);
             //limpia la tabla para meter los nuevos valores
             tblReuniones.Rows.Clear();
