@@ -1,7 +1,8 @@
 body {
     font-family: "Lato", sans-serif;
     background-color: #406295;
-    padding-right: 70px;
+    padding-right: 15%;
+    padding-left: 15%;
     padding-top: 20px;
 }
 
@@ -13,11 +14,11 @@ body {
     margin: 0 auto;
     border-radius: 10px;
     background-color: #2B456C;
-    width: 800px;
-    height: 650px;
+
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
+    
     padding-top: 1px;
     color: #ffffff;
     font-size: 15px;
@@ -26,10 +27,10 @@ body {
 #container2 {
     border-radius: 10px;
     background-color: #C9D4E1;
-    width: 750px;
-    height: 560px;
+
     padding-left: 50px;
     padding-top: 20px;
+
 }
 
 #imgPerfil1 {

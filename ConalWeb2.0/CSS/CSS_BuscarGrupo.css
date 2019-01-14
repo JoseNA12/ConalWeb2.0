@@ -6,6 +6,10 @@
     padding-top: 20px;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 #container1 {
     margin: 0 auto;
     border-radius: 10px;

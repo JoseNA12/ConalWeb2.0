@@ -66,9 +66,9 @@
 			</div>
 		</div>
 		<div id = "divButton">
-			<button type="button" class = "buttonGrupos" style = "margin: 25px auto auto 9em;">Publicar reunión</button>
-			<button type="button" class = "buttonGrupos" style = "margin: 25px auto auto 9em;">Publicar suceso</button>
-			<button type="button" class = "buttonGrupos" style = "margin: 25px auto auto 20em;">Salir del grupo</button>
+			<button type="button" class="button">Publicar reunión</button>
+			<button type="button" class="button">Publicar suceso</button>
+			<button type="button" class="button2">Salir del grupo</button>
 		</div>
 
      
