@@ -28,6 +28,10 @@
 
     <style>
 
+        body {
+            margin-left: 230px;
+        }
+
         .vertical-menu {
           table-layout: fixed;
           width: 230px;
