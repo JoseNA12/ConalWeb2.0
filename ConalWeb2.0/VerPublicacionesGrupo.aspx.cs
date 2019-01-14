@@ -21,7 +21,8 @@ namespace ConalWeb2._0
 
         protected void llenarTablaReunion(string pIdGrupo)
         {
-            ArrayList reuniones = ConexionBD.getInstance().selectReunionesGrupo(pIdGrupo);
+            ArrayList reunionesTemp = ConexionBD.getInstance().selectReunionesGrupo("1");
+            ClaseGlobal.getInstancia().setReuniones(reunionesTemp);
             //limpia la tabla para meter los nuevos valores
             tblReuniones.Rows.Clear();
 
@@ -29,7 +30,7 @@ namespace ConalWeb2._0
             TableRow row = new TableRow();
             TableCell campo = new TableCell();
             int x = 0;
-            foreach (Reunion reunion in reuniones)
+            foreach (Reunion reunion in ClaseGlobal.getInstancia().getReuniones())
             {
                 row = new TableRow();
 
@@ -37,7 +38,7 @@ namespace ConalWeb2._0
                 campo = new TableCell();
                 campo.Text = "<b><h1>" + reunion.getTitular() + "</h1></b> " + "<br/>" +
                             "<b> Autor: </b>" + reunion.getNombreUsuario() + "<br/><br/>" +
-                "<i> <a id='" + x + "' class='link' href='#'>Ingresar a publicación </a></i>";
+                "<i> <a id='" + x + "' class='linkReunion' href='#'>Ingresar a publicación </a></i>";
            
                 campo.Attributes.Add("Style", "width: 100%; height: 150px;");
                 row.Cells.Add(campo);
@@ -67,7 +68,7 @@ namespace ConalWeb2._0
                 //AGREGA LA INFORMACION DEL EVENTO
                 campo = new TableCell();
                 campo.Text = "<b><h1>" + suceso.getTitular() + "</h1></b> " + "<br/>" + "<b> Autor: </b>" + suceso.getNombreUsuario() + "<br/><br/>" +
-                "<i> <a id='" + x + "' class='link' >Ingresar a publicación </a> </i>";
+                "<i> <a id='" + x + "' class='linkSuceso' >Ingresar a publicación </a> </i>";
                 campo.Attributes.Add("Style", "width: 100%; height: 150px;");
                 row.Cells.Add(campo);             
                 row.Attributes.Add("Style", "color: black; background-color: #C9D4E1");

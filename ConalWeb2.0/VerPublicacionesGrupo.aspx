@@ -25,8 +25,12 @@
 				e.preventDefault();
             });
 
-            $('.link').click(function (e) {
+            $('.linkSuceso').click(function (e) {
                 window.location.href='VerSuceso.aspx?id='+ $(this).attr('id');               
+            });
+
+            $('.linkReunion').click(function (e) {
+                window.location.href='VerReunion.aspx?id='+ $(this).attr('id');               
 			});
         });
 

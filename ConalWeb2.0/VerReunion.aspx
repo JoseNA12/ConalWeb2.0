@@ -8,25 +8,30 @@
     <title></title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link type="text/css" rel="stylesheet" href="CSS_VerReunion.css">
+	<link type="text/css" rel="stylesheet" href="CSS/CSS_VerReunion.css">
 </head>
 <body>
     <form id="form1" runat="server">
-        <p> <span id = "titularReunion" class = "txt">Titular</span> <span id = "fechaReunion" class = "txt">Fecha</span> <span id = "horaReunion" class = "txt">Hora</span> </p>
+		<asp:label runat="server" id = "titularSuceso" class = "txt">Titular</asp:label> <asp:label runat="server" ID ="fechaSuceso" class = "txt">Fecha</asp:label> <asp:label runat="server" id = "horaSuceso" class = "txt">Hora</asp:label> 
 
-		<span  class="close" title="Close Modal">&times;</span>
-
-		<div id = "divMapa" class = "divReunion">
-			
+		<!--<span  class="close" title="Close Modal">&times;</span>-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <asp:label runat="server" id = "Label1" class = "txt"> Descripción </asp:label>
+		<div id = "divDesc" class = "divSuceso">
+            <br>
+			<asp:label runat="server" id = "descripcionSuceso" class = "info"> Descripción del suceso </asp:label>
+		</div>
+		<br>
+		<br>
+        <asp:label runat="server" id = "Label3" class = "txt"> Ubicación </asp:label>
+		<div id = "divUbicacion" class = "divSuceso">
+            <br>
+			<asp:label runat="server" id = "ubicacionSuceso" class = "info"> Ubicación del suceso </asp:label>
 		</div>
 
-		<div id = "divDesc" class = "divReunion">
-			<p id = "descripcionReunion" class = "titulos"> Descripción </p>
-		</div>
-	
-		<div id = "divUbicacion" class = "divReunion">
-			<p id = "ubicacionReunion" class = "titulos"> Ubicación </p>
-		</div>
     </form>
 </body>
 </html>

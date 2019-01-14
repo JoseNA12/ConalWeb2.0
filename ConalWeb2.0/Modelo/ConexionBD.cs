@@ -161,9 +161,9 @@ namespace ConalWeb2._0.Modelo
             return false;
         }
 
-        public Boolean publicarSuceso(string titular, string descripcion, string sospechosos, string fecha, string hora, string ubicacion, string imgGPS, string idUsuario, string idGrupo)
+        public Boolean publicarSuceso(string titular, string descripcion, string sospechosos, string fecha, string hora, string ubicacion, string idUsuario, string idGrupo)
         {
-            string respuesta = executeQueryPOST(URL_PublicarSuceso, "titular=" + titular + "&descripcion=" + descripcion + "&sospechosos=" + sospechosos + "&fecha=" + fecha + "&hora=" + hora + "&ubicacion="+ubicacion + "&imgGPS="+imgGPS + "&idUsuario="+idUsuario + "&idGrupo=" + idGrupo);
+            string respuesta = executeQueryPOST(URL_PublicarSuceso, "titular=" + titular + "&descripcion=" + descripcion + "&sospechosos=" + sospechosos + "&fecha=" + fecha + "&hora=" + hora + "&ubicacion="+ubicacion  + "&idUsuario="+idUsuario + "&idGrupo=" + idGrupo);
 
             try
             {
@@ -294,7 +294,6 @@ namespace ConalWeb2._0.Modelo
                     JToken valores = jsonObject.GetValue("value");
                     foreach (JObject json in valores)
                     {
-                        System.Diagnostics.Debug.WriteLine("id reunion " + json.Value<string>("IdReunion"));
                         string idReunion = json.Value<string>("IdReunion");
                         string idUsuario = json.Value<string>("IdUsuario");
                         string nombreUsuario = json.Value<string>("Nombre") + " " + json.Value<string>("Apellido") ;
@@ -303,7 +302,6 @@ namespace ConalWeb2._0.Modelo
                         string titular = json.Value<string>("Titular");
                         string fecha = json.Value<string>("Fecha");
                         string hora = json.Value<string>("Hora");
-                        System.Diagnostics.Debug.WriteLine(idReunion + " ??" + idUsuario + " " + ubicacion + " " + descripcion + " " + titular);
                         Reunion u = new Reunion(idReunion, IdGrupo, idUsuario, nombreUsuario, ubicacion, descripcion, titular, fecha, hora);
                         result.Add(u);
                     }
@@ -331,7 +329,6 @@ namespace ConalWeb2._0.Modelo
                     JToken valores = jsonObject.GetValue("value");
                     foreach (JObject json in valores)
                     {
-                        System.Diagnostics.Debug.WriteLine("id reunion " + json.Value<string>("IdReunion"));
                         string idSuceso = json.Value<string>("IdSuceso");
                         string idUsuario = json.Value<string>("IdUsuario");
                         string nombreUsuario = json.Value<string>("Nombre") + " " + json.Value<string>("Apellido");

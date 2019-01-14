@@ -16,7 +16,7 @@ namespace ConalWeb2._0.Modelo
         public static string sessionKey_usuarioURLImagenPerfil = "USUARIO_ACTUAL_URL_IMAGEN";
 
         private ArrayList sucesos;
-
+        private ArrayList reuniones;
         private static ClaseGlobal intanciaClaseGlobal;
 
         public static ClaseGlobal getInstancia()
@@ -36,6 +36,17 @@ namespace ConalWeb2._0.Modelo
         public void setSucesos(ArrayList pSucesos)
         {
             this.sucesos = pSucesos;
+
+        }
+
+        public ArrayList getReuniones()
+        {
+            return this.reuniones;
+        }
+
+        public void setReuniones(ArrayList pReuniones)
+        {
+            this.reuniones = pReuniones;
 
         }
     }
