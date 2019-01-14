@@ -15,14 +15,13 @@ namespace ConalWeb2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            llenarTablaReunion();
-            llenarTablaSuceso();
-           
+            llenarTablaReunion(Request.QueryString["idGrupo"]); // En Menu.Master.cs (llenarTabla()) se define el nombre de la variable de este Request
+            llenarTablaSuceso(Request.QueryString["idGrupo"]);
         }
 
-        protected void llenarTablaReunion()
+        protected void llenarTablaReunion(string pIdGrupo)
         {
-            ArrayList reuniones = ConexionBD.getInstance().selectReunionesGrupo("1");
+            ArrayList reuniones = ConexionBD.getInstance().selectReunionesGrupo(pIdGrupo);
             //limpia la tabla para meter los nuevos valores
             tblReuniones.Rows.Clear();
 
@@ -48,9 +47,9 @@ namespace ConalWeb2._0
             }
         }
 
-        protected void llenarTablaSuceso()
+        protected void llenarTablaSuceso(string pIdGrupo)
         {
-            ArrayList sucesosTemp = ConexionBD.getInstance().selectSucesosGrupo("1");
+            ArrayList sucesosTemp = ConexionBD.getInstance().selectSucesosGrupo(pIdGrupo);
             ClaseGlobal.getInstancia().setSucesos(sucesosTemp);
             //limpia la tabla para meter los nuevos valores
             tblSucesos.Rows.Clear();
