@@ -13,15 +13,6 @@ namespace ConalWeb2._0 {
     public partial class VerPublicacionesGrupo {
         
         /// <summary>
-        /// Control seccionSucesos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel seccionSucesos;
-        
-        /// <summary>
         /// Control tblSucesos.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace ConalWeb2._0 {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tblSucesos;
-        
-        /// <summary>
-        /// Control seccionReuniones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel seccionReuniones;
         
         /// <summary>
         /// Control tblReuniones.

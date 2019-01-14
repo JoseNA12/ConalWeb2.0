@@ -13,9 +13,6 @@ namespace ConalWeb2._0
 {
     public partial class VerPublicacionesGrupo : System.Web.UI.Page
     {
-        public String pruebaVar = "'hola'";
-        
-
         protected void Page_Load(object sender, EventArgs e)
         {
             llenarTablaReunion();
@@ -41,7 +38,7 @@ namespace ConalWeb2._0
                 campo = new TableCell();
                 campo.Text = "<b><h1>" + reunion.getTitular() + "</h1></b> " + "<br/>" +
                             "<b> Autor: </b>" + reunion.getNombreUsuario() + "<br/><br/>" +
-                "<i> <a id='" + x + "' class='link' href='#miModal'>Ingresar a publicación </a></i>";
+                "<i> <a id='" + x + "' class='link' href='#'>Ingresar a publicación </a></i>";
            
                 campo.Attributes.Add("Style", "width: 100%; height: 150px;");
                 row.Cells.Add(campo);
