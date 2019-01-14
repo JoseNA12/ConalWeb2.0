@@ -1,22 +1,23 @@
-
-
 body {
-  font-family: "Lato", sans-serif;
-  background-color: #406295;
-
-  
-  padding-top:20px;
+    font-family: "Lato", sans-serif;
+    background-color: #406295;
+    padding-right: 70px;
+    padding-top: 20px;
 }
 
 
 /********************************************************************/
+
+* {
+    box-sizing: border-box;
+}
 
 #container1 {
     margin: 0 auto;
     border-radius: 10px;
     background-color: #2B456C;
     width: 1000px;
-    height: 900px;
+
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
@@ -30,28 +31,28 @@ body {
     border-radius: 10px;
     background-color: #C9D4E1;
     width:900px;
-    height:820px;
+
     padding-left:100px;
     padding-top:20px;
 }
 
 /*************************** TABS *****************/
 
-  #crearReunionForm {
+#crearReunionForm {
     margin-right: 10px;
     padding-left: 50px;
     width: 70%;
     min-width: 300px;
     left:20px;
-  }
+}
 
-  input {
+input {
     padding: 10px;
     width: 80%;
     font-size: 17px;
     border: 1px solid #aaaaaa;
-	font-family: "Lato", sans-serif;
-  }
+    font-family: "Lato", sans-serif;
+}
 
   textarea {
     padding: 10px;
@@ -81,35 +82,9 @@ body {
     margin-right: 157px;
 }
 
-  .button:hover {
+.button:hover {
     opacity: 0.8;
-  }
-
-  #prevBtn {
-    background-color: #bbbbbb;
-  }
-
-  /* Make circles that indicate the steps of the form: */
-  .step {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #406295;
-    border: none;  
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.5;
-  }
-
-  .step.active {
-    opacity: 1;
-  }
-  
-  /* Mark the steps that are finished and valid: */
-  .step.finish {
-    background-color: #4CAF50;
-  }
-
+}
 
 label {
   display: inline-block;
