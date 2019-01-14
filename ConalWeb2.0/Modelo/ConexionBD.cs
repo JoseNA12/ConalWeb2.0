@@ -25,7 +25,6 @@ namespace ConalWeb2._0.Modelo
         private static string URL_CrearGrupo = host + "Grupo/CrearGrupo.php";
         private static string URL_SelectGrupos = host + "Grupo/Select_Grupos.php";
 
-
         private static string URL_PublicarSuceso = host + "Suceso/CrearSuceso.php";
 
         private static string URL_PublicarReunion = host + "Reunion/Insert_Reunion.php";
@@ -33,8 +32,7 @@ namespace ConalWeb2._0.Modelo
 
         private static string URL_RegistrarUsuario = host + "Usuario/RegistrarUsuario.php";
         private static string URL_IniciarSesion = host + "Usuario/Login.php";
-
-
+        private static string URL_SelectUsuarios = host + "Usuario/SelectUsuarios.php";
 
         private static ConexionBD instancia;
 
@@ -196,9 +194,9 @@ namespace ConalWeb2._0.Modelo
             return false;
         }
 
-        public Boolean registrarUsuario(string username, string password, string email, string name, string lastname)
+        public Boolean registrarUsuario(string username, string password, string email, string name, string lastname, string imagen)
         {
-            string respuesta = executeQueryPOST(URL_RegistrarUsuario, "username=" + username + "&password=" + password + "&email=" + email + "&name=" + name + "&lastname=" + lastname);
+            string respuesta = executeQueryPOST(URL_RegistrarUsuario, "username=" + username + "&password=" + password + "&email=" + email + "&name=" + name + "&lastname=" + lastname + "&img=" + imagen);
 
             try
             {
@@ -266,7 +264,8 @@ namespace ConalWeb2._0.Modelo
                         string nombre = json.Value<string>("Nombre");
                         string apellido = json.Value<string>("Apellido");
                         string correo = json.Value<string>("Correo");
-                        Usuario u = new Usuario(idUsuario, nombre, apellido, correo);
+                        string imgPerfil = json.Value<string>("ImgPerfil");
+                        Usuario u = new Usuario(idUsuario, nombre, apellido, correo, imgPerfil);
                         result.Add(u);
                     }
 
@@ -331,7 +330,8 @@ namespace ConalWeb2._0.Modelo
                     string nombre = valores.Value<string>("Nombre");
                     string apellido = valores.Value<string>("Apellido");
                     string correo = valores.Value<string>("Correo");
-                    u = new Usuario(idUsuario, nombre, apellido, correo);
+                    string imgPerfil = valores.Value<string>("ImgPerfil");
+                    u = new Usuario(idUsuario, nombre, apellido, correo,imgPerfil);
                     return u;   
                 }
             }
@@ -371,6 +371,29 @@ namespace ConalWeb2._0.Modelo
                         {
                             return false;
                         }                        
+                    }
+                }
+            }
+            catch (Exception e) { }
+            return true;
+        }
+
+        public Boolean validarUsuario(string pNombreUsuario)
+        {
+            string respuesta = executeQueryPOST(URL_SelectUsuarios, "");
+            ArrayList result = new ArrayList();
+            try
+            {
+                JObject jsonObject = JObject.Parse(respuesta);
+                if (!jsonObject.Value<string>("status").Equals("false"))
+                {
+                    JToken valores = jsonObject.GetValue("value");
+                    foreach (JObject json in valores)
+                    {
+                        if (pNombreUsuario.Equals(json.Value<string>("IDUsuario")))
+                        {
+                            return false;
+                        }
                     }
                 }
             }
