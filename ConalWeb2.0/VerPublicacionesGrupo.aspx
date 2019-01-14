@@ -34,6 +34,14 @@
 			});
         });
 
+        function goToPublicarSuceso() {
+            window.location.href = 'PublicarSuceso.aspx';
+        }
+
+        function goToPublicarReunion() {
+            window.location.href = 'PublicarReunion.aspx';
+        }
+
 	</script>
 
 </asp:Content>
@@ -70,9 +78,9 @@
 			</div>
 		</div>
 		<div id = "divButton">
-			<button type="button" class="button">Publicar reunión</button>
-			<button type="button" class="button">Publicar suceso</button>
-			<button type="button" class="button2">Salir del grupo</button>
+			<button type="button" class="button" onclick="goToPublicarReunion()">Publicar reunión</button>
+			<button type="button" class="button" onclick="goToPublicarSuceso()">Publicar suceso</button>
+			<button type="button" class="button2 onclick=""">Salir del grupo</button>
 		</div>
 
      

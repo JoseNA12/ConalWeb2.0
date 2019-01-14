@@ -32,11 +32,14 @@
 
 				<label for="nombre">Ubicación del suceso</label>
 				<p><Textarea id="inputUbicacion" rows="4" cols="50" name="inputUbicacion" placeholder='Ubicación del acontecimiento'></Textarea></p>
-				<label for="nombre">Mapa de la ubicación</label>
+				
+                <!--<label for="nombre">Mapa de la ubicación</label>-->
 
                 <p style="center">
                     <asp:Button ID="btnPublicar" class="button" runat="server" Text="Publicar" OnClick="btnPublicarSuceso" />
 				</p>
+
+                <br> <br>
 			</div>
 		</div>
 	</div>

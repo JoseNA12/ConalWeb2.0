@@ -38,7 +38,7 @@ namespace ConalWeb2._0
                 campo = new TableCell();
                 campo.Text = "<b><h1>" + reunion.getTitular() + "</h1></b> " + "<br/>" +
                             "<b> Autor: </b>" + reunion.getNombreUsuario() + "<br/><br/>" +
-                "<i> <a id='" + x + "' class='linkReunion' href='#'>Ingresar a publicación </a></i>";
+                "<i> <a id='" + x + "' class='linkReunion' href='#'>Ingresar a publicación </a></i> <hr>";
            
                 campo.Attributes.Add("Style", "width: 100%; height: 150px;");
                 row.Cells.Add(campo);
@@ -68,7 +68,7 @@ namespace ConalWeb2._0
                 //AGREGA LA INFORMACION DEL EVENTO
                 campo = new TableCell();
                 campo.Text = "<b><h1>" + suceso.getTitular() + "</h1></b> " + "<br/>" + "<b> Autor: </b>" + suceso.getNombreUsuario() + "<br/><br/>" +
-                "<i> <a id='" + x + "' class='linkSuceso' >Ingresar a publicación </a> </i>";
+                "<i> <a id='" + x + "' class='linkSuceso' href='#' >Ingresar a publicación </a> </i> <hr>";
                 campo.Attributes.Add("Style", "width: 100%; height: 150px;");
                 row.Cells.Add(campo);             
                 row.Attributes.Add("Style", "color: black; background-color: #C9D4E1");
