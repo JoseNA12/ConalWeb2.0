@@ -1,24 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VerPublicacionesGrupo.aspx.cs" Inherits="ConalWeb2._0.VerPublicacionesGrupo" %>
+﻿<%@ Page Language="C#" MasterPageFile="Menu.Master" AutoEventWireup="true" CodeBehind="VerPublicacionesGrupo.aspx.cs" Inherits="ConalWeb2._0.VerPublicacionesGrupo" %>
 
-<!DOCTYPE html>
 
-<html>
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <meta charset="utf-8">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link type="text/css" rel="stylesheet" href="CSS/CSS_VerPublicacionesGrupo.css">
 
     
-
+    
     <style>
         .modal-contenido{
             font-family: Arial, Helvetica, sans-serif;
             background-color: #2B456C;
             color: white;
-            width:70%;
+            width: 70%;
             margin: auto;
             position: relative;
         }
@@ -115,14 +110,11 @@
 
 	</script>
 
-   
-</head>
-<body>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
 
-    <form id="form1" runat="server">
-
-        <button type="button" class = "buttonGrupos" style = "margin: 25px auto auto 1150px;">Publicar reunión</button>
 		<div class="panel">
 			<div class="panel-heading">
 				<div class="row">
@@ -158,6 +150,4 @@
 		</div>
 
      
-    </form>
-</body>
-</html>
+</asp:Content>
