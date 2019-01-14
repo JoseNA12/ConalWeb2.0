@@ -26,10 +26,13 @@
     width: 80%;
     margin: auto;
     border-radius: 20px;
+    padding: 10px;
+    box-shadow: 5px 10px 8px #162337;
 }
 
-.txt {
+.txt, .titulos {
     margin-left: 150px;
+    font-size: 25px;
 }
 
 /* The Close Button (x) */
@@ -48,6 +51,6 @@
         cursor: pointer;
     }
 
-.titulos {
-    margin: 50px auto auto 50px;
+.info {
+    margin: 20px auto auto 20px;
 }

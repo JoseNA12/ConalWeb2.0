@@ -16,9 +16,9 @@ namespace ConalWeb2._0
             {
                 int i = Int32.Parse(Request.QueryString["id"]);
                 Suceso prueba = (Suceso) ClaseGlobal.getInstancia().getSucesos()[i];
-                titularSuceso.Text = prueba.getTitular();
-                fechaSuceso.Text = prueba.getFecha();
-                horaSuceso.Text = prueba.getHora();
+                titularSuceso.Text += ": " + prueba.getTitular();
+                fechaSuceso.Text += ": " + prueba.getFecha();
+                horaSuceso.Text += ": " + prueba.getHora();
                 descripcionSuceso.Text = prueba.getDescripcion();
                 sospechosoSuceso.Text = prueba.getSospechosos();
                 ubicacionSuceso.Text = prueba.getUbicacion();
