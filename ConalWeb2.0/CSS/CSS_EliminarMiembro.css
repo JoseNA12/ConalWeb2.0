@@ -15,21 +15,21 @@
 }
 
 
-    #tablaIntegrantes th, #tablaIntegrantes td {
-        padding: 12px;
-    }
+#tablaIntegrantes th, #tablaIntegrantes td {
+    padding: 12px;
+}
 
-    #tablaIntegrantes tr, #tablaIntegrantese tr {
-        border-bottom: 1px solid #ddd;
-    }
+#tablaIntegrantes tr, #tablaIntegrantese tr {
+    border-bottom: 1px solid #ddd;
+}
 
-        #tablaIntegrantes tr:hover {
-            background-color: #f1f1f1;
-        }
+#tablaIntegrantes tr:hover {
+    background-color: #f1f1f1;
+}
 
-        #tablaIntegrantes tr.header {
-            background-color: #EFF2F7;
-        }
+#tablaIntegrantes tr.header {
+    background-color: #EFF2F7;
+}
 
 
 #container1 {
@@ -37,7 +37,7 @@
     border-radius: 10px;
     background-color: #2B456C;
     width: 1000px;
-    height: 860px;
+
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
@@ -49,8 +49,7 @@
     color: black;
     border-radius: 10px;
     background-color: #C9D4E1;
-    width: 900px;
-    height: 770px;
+
     padding-left: 100px;
     padding-top: 20px;
 }
