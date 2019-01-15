@@ -84,7 +84,7 @@
 		<div id = "divButton">
 			<button type="button" class="button" onclick="goToPublicarReunion()">Publicar reunión</button>
 			<button type="button" class="button" onclick="goToPublicarSuceso()">Publicar suceso</button>
-			<button type="button" class="button2 onclick=""">Salir del grupo</button>
+			<button type="button" class="button2 onclick="#">Salir del grupo</button>
 		</div>
 
      

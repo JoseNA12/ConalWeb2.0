@@ -35,7 +35,7 @@
 				
                 <!--<label for="nombre">Mapa de la ubicación</label>-->
 
-                <p style="center">
+                <p style:"center">
                     <asp:Button ID="btnPublicar" class="button" runat="server" Text="Publicar" OnClick="btnPublicarSuceso" />
 				</p>
 

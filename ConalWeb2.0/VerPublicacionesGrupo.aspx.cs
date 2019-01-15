@@ -21,6 +21,7 @@ namespace ConalWeb2._0
             }
             llenarTablaReunion(Request.QueryString["idGrupo"]); // En Menu.Master.cs (llenarTabla()) se define el nombre de la variable de este Request
             llenarTablaSuceso(Request.QueryString["idGrupo"]);
+            verificarAdministradorGrupo(Request.QueryString["idGrupo"]);
         }
 
         private void asociarUsuarioAlGrupo()
@@ -91,6 +92,22 @@ namespace ConalWeb2._0
                 row.Attributes.Add("Style", "color: black; background-color: #C9D4E1");
                 tblSucesos.Rows.Add(row);
                 x += 1;
+
+            }
+        }
+
+        protected void verificarAdministradorGrupo(string pIdGrupo)
+        {
+            string usuarioActual = HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString();
+
+            // verificar si es admi del grupo
+
+            if (true)
+            {
+
+            }
+            else
+            {
 
             }
         }
