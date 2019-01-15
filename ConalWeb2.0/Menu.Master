@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="span">
 <head runat="server">
     <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -147,6 +147,11 @@
             overflow-y: auto;
             max-height: 300px;
         }
+
+        #divImgProfile{
+            text-align: center;
+            margin: 0 auto;
+        }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -174,7 +179,7 @@
         <asp:TableRow>
             <asp:TableCell>
                 <div class="imagenPerfil" runat="server" >                  
-                    <div  onclick="location.href='VerPerfil.aspx';" style="{cursor: pointer;}"><img id="imagenPerfil" style="width:100%"> </div>
+                    <div onclick="location.href='VerPerfil.aspx';" id="divImgProfile"><img id="imagenPerfil" style="width:75%; cursor:pointer; border-radius:50%;";> </div>
                 </div>
             </asp:TableCell>
         </asp:TableRow>

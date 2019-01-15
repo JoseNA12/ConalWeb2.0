@@ -23,14 +23,23 @@ namespace ConalWeb2._0
             if (validarNombreGrupo())
             {
                 string usuario = HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString();
-                Boolean creacionGrupo = ConexionBD.getInstance().crearGrupo(usuario, inputNombre.Text, Request["inputDescripcion"]);
-                if (creacionGrupo)
+
+                if (!String.IsNullOrEmpty(inputNombre.Text))
                 {
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "redirect", "mostrarMensaje('Se ha creado el grupo "+inputNombre.Text+"'); window.location='" + Request.ApplicationPath + "PaginaPrincipal.aspx';", true);
+
+                    Boolean creacionGrupo = ConexionBD.getInstance().crearGrupo(usuario, inputNombre.Text, Request["inputDescripcion"]);
+                    if (creacionGrupo)
+                    {
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "redirect", "mostrarMensaje('Se ha creado el grupo " + inputNombre.Text + "'); window.location='" + Request.ApplicationPath + "PaginaPrincipal.aspx';", true);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "script", "mostrarMensaje('No se ha podido crear el grupo.');", true);
+                    }
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "script", "mostrarMensaje('No se ha podido crear el grupo.');", true);
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "script", "mostrarMensaje('Se debe ingresar al menos el nombre del grupo.');", true);
                 }
             }
             else

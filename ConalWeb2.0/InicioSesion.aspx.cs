@@ -23,7 +23,7 @@ namespace ConalWeb2._0
 
             if (u == null)
             {
-                Response.Write("<script>alert(' error ')</script>");
+                Response.Write("<script>alert('Error al ingresar al sistema, verifique las credenciales ingresadas!')</script>");
             }
             else
             {
