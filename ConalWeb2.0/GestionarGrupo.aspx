@@ -19,12 +19,11 @@
                     <label for="subject">Descripción</label>
                     <p><Textarea id="inputDescripcion" rows="4" cols="50" name="inputDescripcion" placeholder="Descripción del grupo.."></Textarea></p>
 
-                    <br>
                     <br>                    
                 </div><br>
-                <div class="tab" id="idButtonCrearGp">
-                    <asp:Button class="btnCrearGrupo" name="btnCrearGp" runat="server" Text="Modificar Grupo"  OnClick="btn_ModificarGrupo" />
-                    <button type="button" class="btnCrearGrupo" id ="btnEliminarMiembros">Eliminar miembros</button>
+                <div id="myDiv">
+                    <asp:Button class="button" name="btnCrearGp" runat="server" Text="Modificar Grupo"  OnClick="btn_ModificarGrupo" />
+                    <button type="button" class="button" id ="btnEliminarMiembros">Eliminar miembros</button>
                 </div>                               
             </div>
         </div>
@@ -32,8 +31,8 @@
     <asp:HiddenField ID="HiddenField1" runat="server" />  
     <script>
        $(function() {
-            $('.btnEliminarMiembros').click(function (e) {
-                window.location.href='EliminarMiembros.aspx?id='+ $(HiddenField1).attr('Value');               
+            $('#btnEliminarMiembros').click(function (e) {
+                window.location.href='EliminarMiembros.aspx?idGrupo='+ $("#HiddenField1").attr('Value');               
 			});
         });
 

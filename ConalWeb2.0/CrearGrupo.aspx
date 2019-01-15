@@ -21,9 +21,9 @@
 
                     <br>
                     <br>                    
-                </div><br>
+                </div>
                 <div class="tab" id="idButtonCrearGp">
-                    <asp:Button class="btnCrearGrupo" name="btnCrearGp" runat="server" Text="Crear Grupo"  OnClick="btn_CrearGrupo" />
+                    <asp:Button class="button" name="btnCrearGp" runat="server" Text="Crear Grupo"  OnClick="btn_CrearGrupo" />
                 </div>                               
             </div>
         </div>
