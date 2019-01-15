@@ -16,11 +16,11 @@ namespace ConalWeb2._0
             {
                 int i = Int32.Parse(Request.QueryString["id"]);
                 Reunion prueba = (Reunion)ClaseGlobal.getInstancia().getReuniones()[i];
-                titularSuceso.Text += ": " + prueba.getTitular();
-                fechaSuceso.Text += ": " + prueba.getFecha();
-                horaSuceso.Text += ": " + prueba.getHora();
-                descripcionSuceso.Text = prueba.getDescripcion();
-                ubicacionSuceso.Text = prueba.getUbicacion();
+                titularReunion.Text += ": " + prueba.getTitular();
+                fechaReunion.Text += ": " + prueba.getFecha();
+                horaReunion.Text += ": " + prueba.getHora();
+                descripcionReunion.Text = prueba.getDescripcion();
+                ubicacionReunion.Text = prueba.getUbicacion();
             }
             else
             {

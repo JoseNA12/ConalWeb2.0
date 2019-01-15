@@ -17,6 +17,7 @@ namespace ConalWeb2._0.Modelo
 
         private ArrayList sucesos;
         private ArrayList reuniones;
+        private ArrayList gruposMiembro;
         private static ClaseGlobal intanciaClaseGlobal;
 
         public static ClaseGlobal getInstancia()
@@ -48,6 +49,41 @@ namespace ConalWeb2._0.Modelo
         {
             this.reuniones = pReuniones;
 
+        }
+
+        public ArrayList getGruposMiembro()
+        {
+            return this.gruposMiembro;
+        }
+
+        public void setGruposMiembro(ArrayList pGruposMiembro)
+        {
+            this.gruposMiembro = pGruposMiembro;
+
+        }
+
+        public Grupo getGrupoByID(string idGrupo)
+        {
+            foreach (Grupo grupo in this.gruposMiembro)
+            {
+                if (grupo.getIdGrupo() == idGrupo)
+                {
+                    return grupo;
+                }
+            }
+            return null;
+        }
+
+        public bool esAdministrador(string pIdGrupo, string pIdUsuario)
+        {
+            Grupo miGrupo = getGrupoByID(pIdGrupo);
+
+            if (miGrupo.getIdAdministrador() == pIdUsuario)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

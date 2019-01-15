@@ -42,6 +42,10 @@
             window.location.href = 'PublicarReunion.aspx';
         }
 
+        function goToGestionarGrupo(pIdGrupo) {
+            window.location.href = 'GestionarGrupo.aspx?idGrupo=' + pIdGrupo;
+        }
+
         function mostrarMensaje(mensaje) {
             alert(mensaje);
         }
@@ -67,24 +71,25 @@
 			</div>
 			<div class="panel-body">
                 <div id = "seccionSucesos" style="display: block;">
-                    <asp:Table ID="tblSucesos" runat="server" Width="70%" Style="margin: auto; border:1;" CssClass="table-responsive marginToFooter" >
+                    <asp:Table ID="tblSucesos" runat="server" Width="70%" Style="margin: auto; border:1px;" CssClass="table-responsive marginToFooter" >
                     <asp:TableHeaderRow runat="server" CssClass="tableBorder">
                     </asp:TableHeaderRow>
                     </asp:Table>
                 </div>
 
                 <div id = "seccionReuniones" style="display: none;">
-                    <asp:Table ID="tblReuniones" runat="server" Width="70%" Style="margin: auto; border:1;" CssClass="table-responsive marginToFooter" >
+                    <asp:Table ID="tblReuniones" runat="server" Width="70%" Style="margin: auto; border:1px;" CssClass="table-responsive marginToFooter" >
                     <asp:TableHeaderRow runat="server" CssClass="tableBorder">
                     </asp:TableHeaderRow>
                     </asp:Table>
                 </div>
 			</div>
 		</div>
-		<div id = "divButton">
+
+		<div id = "divButton" runat="server">
 			<button type="button" class="button" onclick="goToPublicarReunion()">Publicar reunión</button>
 			<button type="button" class="button" onclick="goToPublicarSuceso()">Publicar suceso</button>
-			<button type="button" class="button2 onclick=""">Salir del grupo</button>
+			<button type="button" class="button2" onclick="#">Salir del grupo</button>
 		</div>
 
      

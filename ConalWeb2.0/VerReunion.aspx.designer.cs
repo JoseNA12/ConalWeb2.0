@@ -22,31 +22,31 @@ namespace ConalWeb2._0 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control titularSuceso.
+        /// Control titularReunion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label titularSuceso;
+        protected global::System.Web.UI.WebControls.Label titularReunion;
         
         /// <summary>
-        /// Control fechaSuceso.
+        /// Control fechaReunion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fechaSuceso;
+        protected global::System.Web.UI.WebControls.Label fechaReunion;
         
         /// <summary>
-        /// Control horaSuceso.
+        /// Control horaReunion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label horaSuceso;
+        protected global::System.Web.UI.WebControls.Label horaReunion;
         
         /// <summary>
         /// Control Label1.
@@ -58,13 +58,13 @@ namespace ConalWeb2._0 {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control descripcionSuceso.
+        /// Control descripcionReunion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label descripcionSuceso;
+        protected global::System.Web.UI.WebControls.Label descripcionReunion;
         
         /// <summary>
         /// Control Label3.
@@ -76,12 +76,12 @@ namespace ConalWeb2._0 {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control ubicacionSuceso.
+        /// Control ubicacionReunion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ubicacionSuceso;
+        protected global::System.Web.UI.WebControls.Label ubicacionReunion;
     }
 }

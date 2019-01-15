@@ -18,7 +18,9 @@ namespace ConalWeb2._0
 
         protected void llenarTabla()
         {
-            ArrayList grupos = ConexionBD.getInstance().cargarGruposPertenece(HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString());
+            string usuarioActual = (string)HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario];
+            ArrayList grupos = ConexionBD.getInstance().cargarGruposPertenece(usuarioActual);
+            ClaseGlobal.getInstancia().setGruposMiembro(grupos);
             //tblMenu.Rows.Clear();
 
             //comienza a crear la tabla
@@ -27,7 +29,6 @@ namespace ConalWeb2._0
 
             if (tblMenu != null)
             {
-
                 foreach (Grupo grupo in grupos)
                 {
                     divMisGrupos.Controls.Add(new LiteralControl("<a id='" + grupo.getIdGrupo() + "' class='link' >" + grupo.getNombre() + "</a>"));

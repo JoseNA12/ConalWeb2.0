@@ -10,33 +10,24 @@
 namespace ConalWeb2._0 {
     
     
-    public partial class VerPublicacionesGrupo {
+    public partial class GestionarGrupo {
         
         /// <summary>
-        /// Control tblSucesos.
+        /// Control inputNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblSucesos;
+        protected global::System.Web.UI.WebControls.TextBox inputNombre;
         
         /// <summary>
-        /// Control tblReuniones.
+        /// Control HiddenField1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblReuniones;
-        
-        /// <summary>
-        /// Control divButton.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divButton;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
     }
 }

@@ -24,6 +24,7 @@ namespace ConalWeb2._0.Modelo
         private static string URL_Select_Miembros_Grupo = host + "Grupo/Select_Miembros_Grupo.php";
         private static string URL_CrearGrupo = host + "Grupo/CrearGrupo.php";
         private static string URL_SelectGrupos = host + "Grupo/Select_Grupos.php";
+        private static string URL_UpdateGrupo = host + "Grupo/Update_Grupo.php";
 
         private static string URL_PublicarSuceso = host + "Suceso/CrearSuceso.php";
         private static string URL_SelectSucesos = host + "Suceso/Select_Sucesos_de_Grupo.php";
@@ -143,9 +144,9 @@ namespace ConalWeb2._0.Modelo
             return result;
         }
 
-        public Boolean actualizarGrupo(string idGrupo, string nombre, string descripcion, string nombreIMG)
+        public Boolean actualizarGrupo(string idGrupo, string nombre, string descripcion)
         {
-            string respuesta = executeQueryPOST(URL_GruposNoPertenece, "Nombre=" + nombre + "&Descripcion=" + descripcion + "&IdGrupo=" + idGrupo + "&NombreImg=" + nombreIMG);
+            string respuesta = executeQueryPOST(URL_UpdateGrupo, "Nombre=" + nombre + "&Descripcion=" + descripcion + "&IdGrupo=" + idGrupo);
 
 
             try
