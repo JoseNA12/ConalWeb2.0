@@ -3,6 +3,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 #tablaIntegrantes {
     text-align: center;
     border-collapse: collapse;
@@ -38,7 +42,7 @@
     padding-right: 15px;
     padding-bottom: 15px;
     padding-top: 1px;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 #container2 {
@@ -61,6 +65,31 @@
     cursor: pointer;
 }
 
+.buttonGrupos:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 #divButton {
     float: left;
+}
+
+
+.buttonEliminar {
+    border-radius: 4px;
+    background-color: #2B456C; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.buttonEliminar:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
