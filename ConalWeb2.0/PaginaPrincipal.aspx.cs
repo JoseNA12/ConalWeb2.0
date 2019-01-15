@@ -12,14 +12,19 @@ namespace ConalWeb2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioCorreo] != null) // evitar saltarse el inicio de sesion
+            if (HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioCorreo] != null)
             {
-                // si esta logeado
+                //si esta logeado
             }
             else
             {
-                Response.Redirect("InicioSesion.aspx", false); // pa tras niño
+                Response.Redirect("InicioSesion.aspx", false);
             }
+        }
+
+        public void btn_BuscarGrupos(object sender, EventArgs e)
+        {
+            Response.Redirect("BuscarGrupo.aspx", false);
         }
     }
 }

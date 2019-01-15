@@ -45,5 +45,9 @@
           });
         }
 
+        function mostrarMensaje(mensaje) {
+            alert(mensaje);
+        }
+
     </script>
 </asp:Content>

@@ -22,19 +22,20 @@ namespace ConalWeb2._0
         {
             if (validarNombreGrupo())
             {
-                Boolean creacionGrupo = ConexionBD.getInstance().crearGrupo("josuarez3", inputNombre.Text, Request["inputDescripcion"]);
+                string usuario = HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString();
+                Boolean creacionGrupo = ConexionBD.getInstance().crearGrupo(usuario, inputNombre.Text, Request["inputDescripcion"]);
                 if (creacionGrupo)
                 {
-                    Response.Write("<script>alert('Se ha creado el grupo " + inputNombre.Text + " correctamente!')</script>");
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "redirect", "mostrarMensaje('Se ha creado el grupo "+inputNombre.Text+"'); window.location='" + Request.ApplicationPath + "PaginaPrincipal.aspx';", true);
                 }
                 else
                 {
-                    Response.Write("<script>alert('No se ha podido crear el grupo.')</script>");
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "script", "mostrarMensaje('No se ha podido crear el grupo.');", true);
                 }
             }
             else
             {
-                Response.Write("<script>alert('Ya existe un grupo con el nombre que ha indicado.')</script>");
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "script", "mostrarMensaje('Ya existe un grupo con el nombre que ha indicado.');", true);
             }
              
         }

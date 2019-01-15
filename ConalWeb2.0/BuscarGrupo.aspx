@@ -18,6 +18,10 @@
 
     <script>
 
+        function mostrarMensaje(mensaje) {
+            alert(mensaje);
+        }
+
         function myFunction() {
             var input, filter, ul, li, a, i, txtValue;
             input = document.getElementById("myInput");
@@ -52,28 +56,6 @@
                     <asp:TableHeaderRow runat="server" CssClass="tableBorder">
                     </asp:TableHeaderRow>
                 </asp:Table>
-                <!--
-                <ul id="myUL">
-                  <li>
-                      <p>
-                        <a href="#">Adele 
-                            <asp:Button class="button button2 pos" runat="server" Text="Unirse" />
-                        </a>
-                      </p>
-
-                  </li>
-
-                  <li><a href="#">Agnes</a></li>
-
-                  <li><a href="#">Billy</a></li>
-                  <li><a href="#">Bob</a></li>
-
-                  <li><a href="#">Calvin</a></li>
-                  <li><a href="#">Christina</a></li>
-                  <li><a href="#">Cindy</a></li>
-                </ul>
-                <br />
-                <br /> -->
                 <p style="text-align:center;">
                     
                     <asp:Button class="button button2" runat="server" Text="Encontrar grupos" />

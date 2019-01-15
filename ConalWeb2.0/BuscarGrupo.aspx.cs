@@ -13,14 +13,16 @@ namespace ConalWeb2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Write("<script>alert(' Suceso publicado con éxito ')</script>");
-            System.Diagnostics.Debug.WriteLine("parada 0");
+            if (Request.QueryString["return"]!=null)
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "script", "mostrarMensaje('No ha sido posible unirse al grupo.');", true);
+            }
             llenarTabla();
         }
 
         protected void llenarTabla()
         {
-            ArrayList grupos = ConexionBD.getInstance().cargarGruposNoPertenece("josuarez");
+            ArrayList grupos = ConexionBD.getInstance().cargarGruposNoPertenece(HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString());
             tblGruposNoPertenece.Rows.Clear();
 
             //comienza a crear la tabla
@@ -35,16 +37,17 @@ namespace ConalWeb2._0
                 campo = new TableCell();
                 campo.Text = "<b><h3>" + grupo.getNombre() + "</h3></b>";
                 campo.Attributes.Add("Style", "width: 40%");
+                campo.Attributes.Add("Style", "color: #47525E");
                 row.Cells.Add(campo);
 
                 //AGREGA EL BOTON
                 Button button = new Button();
+                button.ID = grupo.getIdGrupo();
                 button.Text = "Unirse";
                 button.CssClass = "button button2 pos";
                 button.Click += delegate
                 {
-                    Response.Write("<script> window.open('" + grupo.getNombre() + "','_blank'); </script>");
-
+                    Response.Redirect("VerPublicacionesGrupo.aspx?idGrupo="+grupo.getIdGrupo()+"&new=true");                   
                 };
                 campo = new TableCell();
                 campo.Controls.Add(button);
@@ -57,7 +60,6 @@ namespace ConalWeb2._0
                 tblGruposNoPertenece.Rows.Add(row);
             }
         }
-
-       
+ 
     }
 }

@@ -15,8 +15,25 @@ namespace ConalWeb2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["new"] != null)
+            {
+                asociarUsuarioAlGrupo();
+            }
             llenarTablaReunion(Request.QueryString["idGrupo"]); // En Menu.Master.cs (llenarTabla()) se define el nombre de la variable de este Request
             llenarTablaSuceso(Request.QueryString["idGrupo"]);
+        }
+
+        private void asociarUsuarioAlGrupo()
+        {
+            bool resultado = ConexionBD.getInstance().agregarMiembroGrupo(HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString(), Request.QueryString["idGrupo"]);
+            if (resultado)
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "script", "mostrarMensaje('Bienvenido al grupo!');", true);
+            }
+            else
+            {
+                Response.Redirect("BuscarGrupo.aspx?return=true");
+            }
         }
 
         protected void llenarTablaReunion(string pIdGrupo)

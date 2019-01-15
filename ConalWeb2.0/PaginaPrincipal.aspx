@@ -27,7 +27,7 @@
                 <p style="text-align:center;">
                     <img src="img/policeman.png" alt="policeman" style="height: 187px; width: 170px" /> 
                     <br /><br />
-                    <asp:Button class="button button2" runat="server" Text="Encontrar grupos" OnClientClick="BuscarGrupo.aspx'"/>
+                    <asp:Button class="button button2" runat="server" Text="Encontrar grupos" OnClick="btn_BuscarGrupos"/>
                 </p>
                 <br />
             </div>
