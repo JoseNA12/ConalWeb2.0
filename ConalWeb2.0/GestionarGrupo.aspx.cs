@@ -22,7 +22,7 @@ namespace ConalWeb2._0
             }
             else
             {
-                Response.Write("<script>alert('no funca')</script>");
+                Response.Write("<script>alert('Error al cargar el grupo, intente nuevamente!')</script>");
             }
         }
 
