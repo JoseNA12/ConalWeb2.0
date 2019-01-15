@@ -78,11 +78,13 @@ namespace ConalWeb2._0.Modelo
         {
             Grupo miGrupo = getGrupoByID(pIdGrupo);
 
-            if (miGrupo.getIdAdministrador() == pIdUsuario)
+            if (miGrupo != null)
             {
-                return true;
+                if (miGrupo.getIdAdministrador() == pIdUsuario)
+                {
+                    return true;
+                }
             }
-
             return false;
         }
     }

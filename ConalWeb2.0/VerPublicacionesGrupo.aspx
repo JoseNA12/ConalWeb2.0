@@ -89,7 +89,7 @@
 		<div id = "divButton" runat="server">
 			<button type="button" class="button" onclick="goToPublicarReunion()">Publicar reunión</button>
 			<button type="button" class="button" onclick="goToPublicarSuceso()">Publicar suceso</button>
-			<button type="button" class="button2" onclick="#">Salir del grupo</button>
+			<asp:Button type="button" runat="server" class="button2" onclick="eliminarMiembro" Text="Salir del grupo"></asp:Button>
 		</div>
 
      

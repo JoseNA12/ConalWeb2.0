@@ -112,5 +112,11 @@ namespace ConalWeb2._0
 
             }
         }
+
+        protected void eliminarMiembro(object sender, EventArgs e)
+        {
+            ConexionBD.getInstance().eliminarMiembroGrupo(HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString(), Request.QueryString["idGrupo"]);
+            Response.Redirect("PaginaPrincipal.aspx", false);
+        }
     }
 }
