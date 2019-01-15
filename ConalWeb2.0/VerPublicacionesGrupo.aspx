@@ -71,14 +71,14 @@
 			</div>
 			<div class="panel-body">
                 <div id = "seccionSucesos" style="display: block;">
-                    <asp:Table ID="tblSucesos" runat="server" Width="70%" Style="margin: auto; border:1;" CssClass="table-responsive marginToFooter" >
+                    <asp:Table ID="tblSucesos" runat="server" Width="70%" Style="margin: auto; border:1px;" CssClass="table-responsive marginToFooter" >
                     <asp:TableHeaderRow runat="server" CssClass="tableBorder">
                     </asp:TableHeaderRow>
                     </asp:Table>
                 </div>
 
                 <div id = "seccionReuniones" style="display: none;">
-                    <asp:Table ID="tblReuniones" runat="server" Width="70%" Style="margin: auto; border:1;" CssClass="table-responsive marginToFooter" >
+                    <asp:Table ID="tblReuniones" runat="server" Width="70%" Style="margin: auto; border:1px;" CssClass="table-responsive marginToFooter" >
                     <asp:TableHeaderRow runat="server" CssClass="tableBorder">
                     </asp:TableHeaderRow>
                     </asp:Table>
