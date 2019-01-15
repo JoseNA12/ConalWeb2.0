@@ -69,7 +69,7 @@ namespace ConalWeb2._0
 
         public async System.Threading.Tasks.Task GuardarImgFireBase(String fileName)
         {
-            var stream = File.Open(@"D:\ConalWEB2.0\ConalWeb2.0\ConalWeb2.0\Files\" + fileName, FileMode.Open);
+            var stream = File.Open(Server.MapPath("~/Files/") + fileName, FileMode.Open);
             var task = new FirebaseStorage("conalweb2-0.appspot.com")
                 .Child("ImgsPerfil")
                 .Child(fileName)
