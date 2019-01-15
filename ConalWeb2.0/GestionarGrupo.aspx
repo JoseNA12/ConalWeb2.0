@@ -32,7 +32,7 @@
     <script>
        $(function() {
             $('#btnEliminarMiembros').click(function (e) {
-                window.location.href='EliminarMiembros.aspx?idGrupo='+ $("#HiddenField1").attr('Value');               
+                window.location.href='EliminarMiembros.aspx?idGrupo='+ $("#ContentPlaceHolder1_HiddenField1").attr('Value');               
 			});
         });
 

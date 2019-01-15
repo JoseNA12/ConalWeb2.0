@@ -268,6 +268,7 @@
     <Content Include="EliminarMiembros.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GestionarGrupo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -363,6 +364,13 @@
     </Compile>
     <Compile Include="EliminarMiembros.aspx.designer.cs">
       <DependentUpon>EliminarMiembros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarGrupo.aspx.cs">
+      <DependentUpon>GestionarGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarGrupo.aspx.designer.cs">
+      <DependentUpon>GestionarGrupo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

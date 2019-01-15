@@ -12,13 +12,11 @@ namespace ConalWeb2._0
 {
     public partial class GestionarGrupo : System.Web.UI.Page
     {
-        private string idGrupo;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Request.QueryString["idGrupo"]))
             {
-                idGrupo = Request.QueryString["idGrupo"];
-                HiddenField1.Value = idGrupo;
+                HiddenField1.Value = Request.QueryString["idGrupo"];
             }
             else
             {
@@ -33,7 +31,7 @@ namespace ConalWeb2._0
             {
                 if (validarNombreGrupo())
                 {
-                    if (ConexionBD.getInstance().actualizarGrupo(idGrupo, inputNombre.Text, Request["inputDescripcion"]))
+                    if (ConexionBD.getInstance().actualizarGrupo(Request.QueryString["idGrupo"], inputNombre.Text, Request["inputDescripcion"]))
                     {
                         Response.Write("<script>alert('Se ha actualizado el grupo correctamente!')</script>");
                         Response.Redirect("PaginaPrincipal.aspx", false);
@@ -57,7 +55,7 @@ namespace ConalWeb2._0
 
         private Boolean validarModificacion()
         {
-            Grupo grupo = ClaseGlobal.getInstancia().getGrupoByID(idGrupo);
+            Grupo grupo = ClaseGlobal.getInstancia().getGrupoByID(Request.QueryString["idGrupo"]);
             if(inputNombre.Text == grupo.getNombre() && Request["inputDescripcion"] == grupo.getDescripcion())
             {  
                 return false;

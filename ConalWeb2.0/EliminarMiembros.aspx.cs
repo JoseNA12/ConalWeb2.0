@@ -64,7 +64,7 @@ namespace ConalWeb2._0
 
                     btn_eliminarIntegrante.Click += delegate
                     {
-                        Response.Redirect("EliminarMiembros.aspx?idMiembro=" + integrante.getIdUsuario() + "&idGrupo=9" + Request.QueryString["idGrupo"]);
+                        Response.Redirect("EliminarMiembros.aspx?idMiembro=" + integrante.getIdUsuario() + "&idGrupo=" + Request.QueryString["idGrupo"]);
                     };
                     campo = new TableCell();
                     campo.Controls.Add(btn_eliminarIntegrante);
@@ -78,11 +78,6 @@ namespace ConalWeb2._0
             }
 
 
-        }
-
-        public void btn_cancelar(object sender, EventArgs e)
-        {
-            Response.Redirect("GestionarGrupo.aspx");
         }
     }
 }

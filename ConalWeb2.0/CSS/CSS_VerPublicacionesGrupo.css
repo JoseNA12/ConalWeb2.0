@@ -10,9 +10,9 @@ body {
 }
 
 .panel {
-    width: 95%;
+    width: 90%;
     margin: 6% auto auto auto;
-    border-radius: 4px;
+    border-radius: 7px;
 }
 
 .panel-heading {
