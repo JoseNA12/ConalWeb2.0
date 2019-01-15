@@ -27,7 +27,7 @@
                 </asp:Table>
 
 
-                <br>
+                <!--<br>
                 <br>
                 <br>
 
@@ -35,7 +35,7 @@
 
                     <asp:Button ID="Button1" runat="server" Text="Cancelar" class = "buttonGrupos" style = " border-radius:4px;" />
                    
-                </div>
+                </div>-->
 
             </div>
         </div>
