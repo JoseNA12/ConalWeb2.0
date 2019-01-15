@@ -101,10 +101,11 @@ namespace ConalWeb2._0
             string usuarioActual = HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString();
 
             // verificar si es admi del grupo
+            bool soyAdmin = ClaseGlobal.getInstancia().esAdministrador(pIdGrupo, HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString());
 
-            if (true)
+            if (soyAdmin)
             {
-
+                divButton.Controls.Add(new LiteralControl("<button class='button2' type='button' onclick='goToGestionarGrupo(" + pIdGrupo + ")'>Administrar</button>"));
             }
             else
             {

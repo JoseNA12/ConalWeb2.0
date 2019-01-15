@@ -42,6 +42,10 @@
             window.location.href = 'PublicarReunion.aspx';
         }
 
+        function goToGestionarGrupo(pIdGrupo) {
+            window.location.href = 'GestionarGrupo.aspx?idGrupo=' + pIdGrupo;
+        }
+
         function mostrarMensaje(mensaje) {
             alert(mensaje);
         }
@@ -81,10 +85,11 @@
                 </div>
 			</div>
 		</div>
-		<div id = "divButton">
+
+		<div id = "divButton" runat="server">
 			<button type="button" class="button" onclick="goToPublicarReunion()">Publicar reunión</button>
 			<button type="button" class="button" onclick="goToPublicarSuceso()">Publicar suceso</button>
-			<button type="button" class="button2 onclick="#">Salir del grupo</button>
+			<button type="button" class="button2" onclick="#">Salir del grupo</button>
 		</div>
 
      
