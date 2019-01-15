@@ -15,7 +15,7 @@ namespace ConalWeb2._0
             if (!string.IsNullOrEmpty(Request.QueryString["id"]))
             {
                 int i = Int32.Parse(Request.QueryString["id"]);
-                Reunion prueba = (Reunion)ClaseGlobal.getInstancia().getReuniones()[i];
+                Reunion prueba = (Reunion) ClaseGlobal.getInstancia().getReuniones()[i];
                 titularReunion.Text += ": " + prueba.getTitular();
                 fechaReunion.Text += ": " + prueba.getFecha();
                 horaReunion.Text += ": " + prueba.getHora();
