@@ -17,9 +17,9 @@ namespace ConalWeb2._0
         }
         public void btnPublicarReunion(object sender, EventArgs e)
         {
-            if(ConexionBD.getInstance().publicarReunion(inputTitular.Text, Request.Form["inputMotivo"], inputFecha.Text, inputHora.Text, Request.Form["inputUbicacion"], "josuarez", "1"))
+            if(ConexionBD.getInstance().publicarReunion(inputTitular.Text, Request.Form["inputMotivo"], inputFecha.Text, inputHora.Text, Request.Form["inputUbicacion"], HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString(), Request.QueryString["idGrupo"]))
             {
-                Response.Write("<script>alert(' Reunión publicada con éxito ')</script>");
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "redirect", "mostrarMensaje('Se ha publicado la reunión con éxito!'); window.location='" + Request.ApplicationPath + "VerPublicacionesGrupo.aspx?idGrupo=" + Request.QueryString["idGrupo"] + "';", true);
             }
             else
             {

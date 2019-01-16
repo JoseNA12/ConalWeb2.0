@@ -34,14 +34,6 @@
 			});
         });
 
-        function goToPublicarSuceso() {
-            window.location.href = 'PublicarSuceso.aspx';
-        }
-
-        function goToPublicarReunion() {
-            window.location.href = 'PublicarReunion.aspx';
-        }
-
         function goToGestionarGrupo(pIdGrupo) {
             window.location.href = 'GestionarGrupo.aspx?idGrupo=' + pIdGrupo;
         }
@@ -87,8 +79,8 @@
 		</div>
 
 		<div id = "divButton" runat="server">
-			<button type="button" class="button" onclick="goToPublicarReunion()">Publicar reunión</button>
-			<button type="button" class="button" onclick="goToPublicarSuceso()">Publicar suceso</button>
+			<asp:Button type="button" runat="server" class="button" onclick="goToPublicarReunion" Text="Publicar reunión"></asp:Button>
+			<asp:Button type="button" runat="server" class="button" onclick="goToPublicarSuceso" Text="Publicar suceso"></asp:Button>
 			<asp:Button type="button" runat="server" class="button2" onclick="eliminarMiembro" Text="Salir del grupo"></asp:Button>
 		</div>
 

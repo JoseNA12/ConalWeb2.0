@@ -13,12 +13,14 @@ namespace ConalWeb2._0
 {
     public partial class VerPublicacionesGrupo : System.Web.UI.Page
     {
+        private string idGrupo;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["new"] != null)
             {
                 asociarUsuarioAlGrupo();
             }
+            idGrupo = Request.QueryString["idGrupo"];
             llenarTablaReunion(Request.QueryString["idGrupo"]); // En Menu.Master.cs (llenarTabla()) se define el nombre de la variable de este Request
             llenarTablaSuceso(Request.QueryString["idGrupo"]);
             verificarAdministradorGrupo(Request.QueryString["idGrupo"]);
@@ -117,6 +119,17 @@ namespace ConalWeb2._0
         {
             ConexionBD.getInstance().eliminarMiembroGrupo(HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString(), Request.QueryString["idGrupo"]);
             Response.Redirect("PaginaPrincipal.aspx", false);
+        }
+
+        protected void goToPublicarReunion(object sender, EventArgs e)
+        {
+            ConexionBD.getInstance().eliminarMiembroGrupo(HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString(), Request.QueryString["idGrupo"]);
+            Response.Redirect("PublicarReunion.aspx?idGrupo=" + Request.QueryString["idGrupo"], false);
+        }
+
+        protected void goToPublicarSuceso(object sender, EventArgs e)
+        {
+            Response.Redirect("PublicarSuceso.aspx?idGrupo=" + Request.QueryString["idGrupo"], false);
         }
     }
 }

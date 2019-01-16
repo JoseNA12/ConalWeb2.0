@@ -164,7 +164,7 @@ namespace ConalWeb2._0.Modelo
 
         public Boolean publicarSuceso(string titular, string descripcion, string sospechosos, string fecha, string hora, string ubicacion, string idUsuario, string idGrupo)
         {
-            string respuesta = executeQueryPOST(URL_PublicarSuceso, "titular=" + titular + "&descripcion=" + descripcion + "&sospechosos=" + sospechosos + "&fecha=" + fecha + "&hora=" + hora + "&ubicacion="+ubicacion  + "&idUsuario="+idUsuario + "&idGrupo=" + idGrupo);
+            string respuesta = executeQueryPOST(URL_PublicarSuceso, "titular=" + titular + "&descripcionSuceso=" + descripcion + "&descripcionSospechosos=" + sospechosos + "&fecha=" + fecha + "&hora=" + hora + "&ubicacionTxt=" + ubicacion  + "&idUsuario="+idUsuario + "&idGrupo=" + idGrupo);
 
             try
             {

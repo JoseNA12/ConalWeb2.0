@@ -3,7 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 	<link rel="stylesheet" href="CSS/CSS_PublicarSuceso.css">
-
+    <script>
+        function mostrarMensaje(mensaje) {
+            alert(mensaje);
+        }
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

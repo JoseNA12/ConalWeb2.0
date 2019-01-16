@@ -7,30 +7,12 @@
     <!--<link href="CSS/Switch.css" rel="stylesheet" />-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <style>
-        /*
-        #divMapaGPS
-        {
-            height: auto;
-            width: auto;
-        }
-        */
-    </style>
+   
 
     <script>
-        /*
-        function desplegarMapa() {
-          var checkBox = document.getElementById("myCheck_Mapa");
-          
-          if (checkBox.checked == true){
-            $("#divMapaGPS").load("MapaGPS.html"); 
-          }
-          else {
-             /* Eliminar el div
-            jQuery('#divMapaGPS').html('');
-          }
+        function mostrarMensaje(mensaje) {
+            alert(mensaje);
         }
-        /*
     </script>
 
 </asp:Content>

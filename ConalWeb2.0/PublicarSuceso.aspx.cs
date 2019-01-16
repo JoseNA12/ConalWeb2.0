@@ -12,14 +12,14 @@ namespace ConalWeb2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnPublicarSuceso(object sender, EventArgs e)
         {
-            if (ConexionBD.getInstance().publicarSuceso(inputTitular.Text, Request.Form["inputDesc"], Request.Form["inputDescSospechosos"], inputFecha.Text, inputHora.Text, Request.Form["inputUbicacion"], "josuarez", "1"))
+            if (ConexionBD.getInstance().publicarSuceso(inputTitular.Text, Request.Form["inputDesc"], Request.Form["inputDescSospechosos"], inputFecha.Text, inputHora.Text, Request.Form["inputUbicacion"], HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString(), Request.QueryString["idGrupo"]))
             {
-                Response.Write("<script>alert(' Suceso publicado con éxito ')</script>");
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "redirect", "mostrarMensaje('Se ha publicado el suceso con éxito!'); window.location='" + Request.ApplicationPath + "VerPublicacionesGrupo.aspx?idGrupo="+Request.QueryString["idGrupo"]+"';", true);
             }
             else
             {
