@@ -123,7 +123,6 @@ namespace ConalWeb2._0
 
         protected void goToPublicarReunion(object sender, EventArgs e)
         {
-            ConexionBD.getInstance().eliminarMiembroGrupo(HttpContext.Current.Session[ClaseGlobal.sessionKey_usuarioNombreUsuario].ToString(), Request.QueryString["idGrupo"]);
             Response.Redirect("PublicarReunion.aspx?idGrupo=" + Request.QueryString["idGrupo"], false);
         }
 
