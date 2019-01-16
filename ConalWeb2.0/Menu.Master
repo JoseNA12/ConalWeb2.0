@@ -57,6 +57,7 @@
             $('.link').click(function (e) {
                 window.location.href='VerPublicacionesGrupo.aspx?idGrupo='+ $(this).attr('id');
             });
+
         });
 
 
@@ -158,22 +159,6 @@
 
 </head>
 <body>
-
-    <!--
-    <span class="checkbox-container" id="checkbox-container">
-      <input class="checkbox-trigger" type="checkbox"  />
-      <span class="menu-content" id="menu-content">
-          <ul id="id_menu">
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
-            <li>Blog</li>
-            <li>Social</li>
-          </ul>
-          
-        <span class="hamburger-menu"></span>
-      </span>
-    </span>-->
 
     <asp:Table ID="tblMenu" runat="server" CssClass="vertical-menu">
         <asp:TableRow>
